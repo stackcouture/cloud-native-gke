@@ -511,3 +511,148 @@ Terraform executes the infrastructure deployment in a layered approach:
 - Automated platform bootstrapping
 - Production-ready Kubernetes foundation
 ---
+## CI/CD Pipeline
+
+The platform implements a fully automated CI/CD pipeline using **GitHub Actions**. Every change to the application source code is validated, secured, packaged, and promoted through a GitOps workflow before being deployed to the Kubernetes cluster.
+
+### Pipeline Workflow
+
+```text
+Developer Push
+      │
+      ▼
+GitHub Actions
+      │
+      ├── Checkout Source Code
+      ├── Build Docker Image
+      ├── Trivy Vulnerability Scan
+      ├── Generate SBOM
+      ├── Push Image to Artifact Registry
+      ├── Sign Image with Cosign
+      ├── Attest SBOM
+      └── Update GitOps Repository
+                │
+                ▼
+           ArgoCD Detects Change
+                │
+                ▼
+      Synchronize Kubernetes Cluster
+                │
+                ▼
+      Progressive Deployment using
+           Argo Rollouts
+```
+
+### Pipeline Stages
+
+| Stage | Description |
+|--------|-------------|
+| **Source Checkout** | Retrieves the latest application source code from GitHub. |
+| **Container Build** | Builds a Docker container image for the application. |
+| **Security Scanning** | Performs container vulnerability scanning using Trivy. |
+| **SBOM Generation** | Generates a Software Bill of Materials (SBOM) in SPDX format. |
+| **Container Registry** | Pushes the validated container image to Google Artifact Registry. |
+| **Image Signing** | Cryptographically signs container images using Cosign keyless signing. |
+| **SBOM Attestation** | Attaches the generated SBOM as an image attestation. |
+| **GitOps Update** | Updates the image tag in the GitOps repository using Kustomize. |
+| **Continuous Deployment** | ArgoCD automatically synchronizes the Kubernetes cluster with the updated GitOps manifests. |
+| **Progressive Delivery** | Argo Rollouts performs Canary or Blue-Green deployments with automated rollout strategies. |
+
+### Security Controls
+
+The CI/CD pipeline integrates security throughout the software delivery lifecycle.
+
+- Automated unit testing
+- Container image vulnerability scanning with Trivy
+- Software Bill of Materials (SBOM) generation
+- Keyless container image signing using Cosign
+- SBOM attestation
+- Secure authentication to Google Cloud using Workload Identity Federation
+- GitOps-based deployment with no direct cluster access
+
+### GitOps Deployment Flow
+
+1. A developer pushes code changes to the application repository.
+2. GitHub Actions executes the CI pipeline.
+3. A new container image is built and validated.
+4. The image is pushed to Google Artifact Registry.
+5. The image is signed and an SBOM attestation is generated.
+6. The GitOps repository is automatically updated with the new image tag.
+7. ArgoCD detects the Git commit and synchronizes the Kubernetes cluster.
+8. Argo Rollouts performs a controlled application deployment using the configured rollout strategy.
+
+---
+## GitOps Workflow
+
+The platform follows a **GitOps** operating model, where Git serves as the single source of truth for application and infrastructure configuration. All deployment changes are made through version-controlled repositories, ensuring that the live Kubernetes cluster continuously matches the desired state defined in Git.
+
+Direct deployments to the cluster are not performed. Instead, **ArgoCD** continuously monitors the GitOps repository and reconciles any detected changes automatically.
+
+### Workflow Overview
+
+```text
+Developer
+    │
+    ▼
+Application Repository
+    │
+    ▼
+GitHub Actions CI
+    │
+    ├── Build Docker Image
+    ├── Execute Unit Tests
+    ├── Trivy Security Scan
+    ├── Generate SBOM
+    ├── Cosign Image Signing
+    └── Push Image to Artifact Registry
+                │
+                ▼
+Update GitOps Repository
+(Kustomize Image Tag)
+                │
+                ▼
+ArgoCD Detects Git Commit
+                │
+                ▼
+Synchronize Kubernetes Cluster
+                │
+                ▼
+Argo Rollouts
+(Canary / Blue-Green Deployment)
+                │
+                ▼
+Production Workload
+```
+
+### Workflow Steps
+
+1. A developer commits and pushes code changes to the application repository.
+2. GitHub Actions validates the application by running automated tests.
+3. A new container image is built and scanned for vulnerabilities using Trivy.
+4. A Software Bill of Materials (SBOM) is generated, and the container image is signed using Cosign.
+5. The validated image is pushed to Google Artifact Registry.
+6. The CI pipeline updates the image tag in the GitOps repository using Kustomize.
+7. ArgoCD detects the Git commit and synchronizes the Kubernetes cluster with the desired state.
+8. Argo Rollouts performs a progressive deployment using the configured rollout strategy.
+9. The application becomes available after the rollout completes successfully.
+
+### GitOps Benefits
+
+- Git as the single source of truth
+- Declarative, version-controlled deployments
+- Automated synchronization and drift detection
+- Immutable deployment history
+- Consistent deployments across environments
+- Simplified rollback using Git history
+- Progressive delivery with Argo Rollouts
+- Fully automated deployment pipeline with no manual `kubectl apply`
+
+### Repository Responsibilities
+
+| Repository | Responsibility |
+|------------|----------------|
+| **Application Repository** | Stores application source code, Dockerfiles, tests, and GitHub Actions workflows. |
+| **GitOps Repository** | Stores Kubernetes manifests, Kustomize overlays, ArgoCD Applications, and deployment configuration. |
+| **Infrastructure Repository** | Stores Terraform modules for provisioning cloud infrastructure and platform components. |
+
+---
