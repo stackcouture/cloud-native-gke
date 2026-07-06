@@ -708,3 +708,266 @@ The platform incorporates security controls commonly associated with modern clou
 > **Note:** This project demonstrates security practices aligned with industry standards and production-grade platform engineering. It is intended as a technical implementation and is not presented as a certified or audited compliance environment.
 
 ---
+## Observability & Monitoring
+
+The platform provides centralized observability through a comprehensive monitoring stack that collects metrics, visualizes system health, and delivers proactive alerting across infrastructure and application workloads.
+
+Monitoring components are deployed as shared platform services, enabling consistent visibility into Kubernetes resources, application performance, and platform operations.
+
+### Observability Stack
+
+| Component | Purpose |
+|-----------|---------|
+| **Prometheus** | Collects and stores metrics from Kubernetes, applications, and platform services. |
+| **Grafana** | Visualizes metrics through interactive dashboards for infrastructure and application monitoring. |
+| **Alertmanager** | Processes Prometheus alerts and routes notifications based on configured alerting rules. |
+| **ServiceMonitors** | Automatically discovers and scrapes metrics from Kubernetes workloads. |
+| **Redis Exporter** | Exposes Redis performance and health metrics to Prometheus. |
+| **PostgreSQL Exporter** | Exposes PostgreSQL database metrics for monitoring and capacity planning. |
+
+### Monitoring Coverage
+
+The platform continuously monitors:
+
+- Kubernetes cluster health
+- Node resource utilization
+- Pod health and availability
+- Application performance metrics
+- HTTP request rates and response times
+- CPU and memory utilization
+- Persistent storage usage
+- PostgreSQL performance metrics
+- Redis performance metrics
+- Kubernetes workload status
+- Platform service availability
+
+### Alerting Capabilities
+
+Prometheus and Alertmanager provide proactive alerting for operational events, including:
+
+- Pod failures and restarts
+- High CPU utilization
+- High memory utilization
+- Application availability issues
+- Database connectivity failures
+- Storage capacity thresholds
+- Kubernetes node health
+- Service endpoint availability
+
+### Key Capabilities
+
+- Centralized metrics collection
+- Real-time infrastructure monitoring
+- Application performance monitoring
+- Database and cache monitoring
+- Interactive Grafana dashboards
+- Automated alert generation
+- Service discovery using ServiceMonitors
+- Historical metrics for troubleshooting and capacity planning
+- Scalable monitoring architecture for Kubernetes workloads
+
+### Design Principles
+
+The observability platform is designed to provide:
+
+- **Visibility** – Comprehensive insights into infrastructure and application health.
+- **Reliability** – Early detection of operational issues through automated alerting.
+- **Scalability** – Automatic monitoring of newly deployed workloads.
+- **Operational Efficiency** – Centralized dashboards and metrics simplify troubleshooting and performance analysis.
+
+---
+## Progressive Delivery
+
+The platform implements **Progressive Delivery** using **Argo Rollouts**, enabling application updates to be released gradually with minimal risk. Instead of replacing all application instances at once, new versions are introduced in controlled stages, allowing validation before full production rollout.
+
+Progressive delivery is fully integrated with the GitOps workflow, ensuring deployments remain declarative, automated, and version-controlled.
+
+### Deployment Strategies
+
+| Strategy | Purpose |
+|----------|---------|
+| **Canary Deployment** | Gradually shifts production traffic to a new application version while monitoring application health and performance. |
+| **Blue-Green Deployment** | Deploys a new application version alongside the existing version and switches traffic only after successful validation. |
+
+### Deployment Workflow
+
+```text
+Developer Push
+        │
+        ▼
+GitHub Actions CI Pipeline
+        │
+        ▼
+Container Image Published
+        │
+        ▼
+GitOps Repository Updated
+        │
+        ▼
+ArgoCD Synchronization
+        │
+        ▼
+Argo Rollouts
+        │
+        ├── Deploy New Version
+        ├── Shift Traffic Gradually
+        ├── Validate Rollout
+        └── Promote or Roll Back
+        │
+        ▼
+Production Workload
+```
+
+### Rollout Capabilities
+
+- Canary deployments with incremental traffic shifting
+- Blue-Green deployments for zero-downtime releases
+- Automated rollout progression
+- Controlled production releases
+- Rapid rollback to the previous stable version
+- Integration with GitOps workflows
+- Version-controlled deployment configuration
+- Declarative rollout definitions using Kubernetes custom resources
+
+### Benefits
+
+- Minimized deployment risk
+- Reduced application downtime
+- Safer production releases
+- Faster recovery from failed deployments
+- Improved deployment confidence
+- Consistent and repeatable release process
+- Fully automated deployment lifecycle
+
+---
+## Disaster Recovery
+
+The platform includes **backup and disaster recovery** capabilities using **Velero**, enabling Kubernetes resources and persistent data to be backed up and restored when required. This helps protect critical workloads from accidental deletion, infrastructure failures, and operational errors.
+
+### Backup Components
+
+| Component | Purpose |
+|-----------|---------|
+| **Velero** | Backs up and restores Kubernetes resources and persistent volumes. |
+| **Cloud Storage** | Stores backup archives in a durable and scalable object storage bucket. |
+| **Persistent Volumes** | Preserves application data for stateful workloads such as PostgreSQL and Redis. |
+
+### Backup Scope
+
+The backup solution protects:
+
+- Kubernetes resources
+- Namespaces
+- Deployments
+- Services
+- ConfigMaps
+- Secrets
+- Persistent Volume Claims (PVCs)
+- PostgreSQL data
+- Redis data
+- Platform configuration
+
+### Recovery Workflow
+
+```text
+Platform Failure
+        │
+        ▼
+Identify Recovery Point
+        │
+        ▼
+Retrieve Backup
+        │
+        ▼
+Restore Kubernetes Resources
+        │
+        ▼
+Restore Persistent Data
+        │
+        ▼
+Validate Platform Health
+        │
+        ▼
+Resume Application Services
+```
+
+### Recovery Capabilities
+
+- Scheduled platform backups
+- On-demand backup creation
+- Kubernetes resource restoration
+- Persistent volume recovery
+- Namespace-level recovery
+- Application-level recovery
+- Disaster recovery testing
+- Version-controlled infrastructure reconstruction using Terraform
+
+### Design Principles
+
+The disaster recovery strategy is based on:
+
+- **Automation** – Backup and restore operations are managed through Velero.
+- **Reliability** – Platform resources and persistent data can be recovered from backup.
+- **Repeatability** – Infrastructure can be recreated using Terraform, while Kubernetes workloads are restored using GitOps and Velero.
+- **Resilience** – Stateless workloads are redeployed automatically, while stateful workloads are recovered from persistent backups.
+
+---
+## Cost Optimization
+
+The platform incorporates cost optimization practices to improve resource efficiency while maintaining application performance and availability. By combining Kubernetes autoscaling, resource governance, and cost visibility, the platform helps reduce unnecessary cloud resource consumption.
+
+### Cost Optimization Components
+
+| Component | Purpose |
+|-----------|---------|
+| **Kubecost** | Provides visibility into Kubernetes resource utilization and estimated infrastructure costs. |
+| **KEDA** | Scales workloads based on application demand and external events, reducing idle resource consumption. |
+| **Horizontal Pod Autoscaler (HPA)** | Automatically adjusts the number of application replicas based on resource utilization. |
+| **Cluster Autoscaler** | Dynamically scales Kubernetes node pools to match workload demand. |
+| **Resource Requests & Limits** | Ensures efficient CPU and memory allocation while preventing resource contention. |
+
+### Cost Optimization Strategies
+
+The platform implements the following optimization techniques:
+
+- Dynamic application scaling using KEDA
+- Automatic pod scaling with Horizontal Pod Autoscaler (HPA)
+- Automatic node scaling using Cluster Autoscaler
+- Resource requests and limits for efficient scheduling
+- Dedicated node pools for system, application, and data workloads
+- Continuous cost monitoring with Kubecost
+- Capacity planning using Prometheus and Grafana metrics
+- Efficient scheduling of workloads based on resource requirements
+
+### Cost Visibility
+
+Kubecost provides insights into:
+
+- CPU utilization
+- Memory utilization
+- Namespace-level resource consumption
+- Workload-level resource consumption
+- Estimated Kubernetes infrastructure costs
+- Resource allocation trends
+- Cost optimization opportunities
+
+### Key Benefits
+
+- Improved resource utilization
+- Reduced over-provisioning
+- Automatic scaling based on demand
+- Better infrastructure capacity planning
+- Increased workload efficiency
+- Enhanced visibility into Kubernetes resource usage
+- Data-driven cost optimization decisions
+
+### Design Principles
+
+The platform follows these cost optimization principles:
+
+- **Right-Sizing** – Allocate appropriate CPU and memory resources to workloads.
+- **Elasticity** – Scale applications and infrastructure based on real-time demand.
+- **Visibility** – Monitor resource consumption and identify optimization opportunities.
+- **Efficiency** – Maximize utilization while maintaining application performance and reliability.
+
+---
