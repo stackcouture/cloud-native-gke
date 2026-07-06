@@ -409,3 +409,105 @@ Platform Engineering Portfolio
 | **platform-automation** | Platform automation repository containing Python-based automation tools, scheduled jobs, operational reports, health checks, and day-to-day platform maintenance scripts. |
 
 ---
+## Platform Architecture
+
+The platform is delivered as a set of independent, composable layers running on Google Kubernetes Engine (GKE). Infrastructure is provisioned once via Terraform, and everything above it — platform services, security, observability, and applications — is managed declaratively through GitOps, so the cluster's actual state always matches what's committed to Git.
+
+## Layer Responsibilities
+
+| Layer | Purpose | Core Components |
+|-------|---------|-----------------|
+| **Infrastructure** | Establishes the cloud foundation, including networking, compute, storage, identity, and managed services. | Terraform, VPC, GKE, Cloud SQL, Artifact Registry, IAM, Workload Identity Federation |
+| **Platform** | Provides shared Kubernetes services that enable secure, reliable, and scalable application delivery. | ArgoCD, Argo Rollouts, Gateway API, NGINX Gateway Fabric, Cert-Manager, External Secrets Operator, Kyverno, Falco, Prometheus, Grafana, Alertmanager, Kubecost, KEDA, Velero, Reloader |
+| **Application** | Hosts the cloud-native business workloads running on the platform. | Vote Service, Result Service, Worker Service, PostgreSQL, Redis |
+
+---
+
+## How It Fits Together
+
+The platform follows a layered architecture where each layer has a clearly defined responsibility and lifecycle.
+
+### Infrastructure Layer
+
+The infrastructure is provisioned using reusable **Terraform modules** and serves as the foundation of the platform. It creates and manages the networking, Kubernetes cluster, managed database, container registry, and cloud identity resources. The same Terraform modules are reused across **Development** and **Production** environments, with environment-specific configuration provided through variables.
+
+### Platform Layer
+
+After the infrastructure is available, the platform layer installs the shared Kubernetes services required by all workloads. These services provide continuous delivery, traffic management, security policy enforcement, runtime protection, monitoring, autoscaling, cost visibility, backup, and operational automation. Since these components are shared, they operate independently of any individual application.
+
+### Application Layer
+
+Applications are deployed using a **GitOps** workflow rather than manual deployment. All application manifests are version-controlled in Git, and **ArgoCD** continuously reconciles the desired state with the live Kubernetes cluster. This approach eliminates manual deployment steps and ensures deployments are repeatable, auditable, and consistent across environments.
+
+### Separation of Responsibilities
+
+Each layer is independently managed and can evolve without impacting the others. Infrastructure changes are isolated from platform services, while platform upgrades can be performed without modifying application code. This separation of concerns improves maintainability, scalability, and long-term platform evolution.
+
+---
+## Infrastructure Provisioning
+
+The entire platform is provisioned using **Terraform**, providing a fully automated, repeatable, and production-ready deployment process. The infrastructure is organized into reusable modules and deployed consistently across environments using environment-specific variables.
+
+Infrastructure provisioning includes both **Google Cloud resources** and the **Kubernetes platform services** required to operate the cluster.
+
+### Google Cloud Infrastructure
+
+Terraform provisions the following cloud resources:
+
+- Virtual Private Cloud (VPC)
+- Private Subnets
+- Cloud Router
+- Cloud NAT
+- Firewall Rules
+- Google Kubernetes Engine (GKE)
+- Cloud SQL (PostgreSQL)
+- Artifact Registry
+- Cloud Storage
+- IAM Roles and Service Accounts
+- Workload Identity Federation
+
+### Kubernetes Platform Components
+
+After the GKE cluster is provisioned, Terraform automatically installs the shared platform services using the **Helm** and **Kubernetes** providers.
+
+Platform services include:
+
+- ArgoCD
+- Argo Rollouts
+- Cert-Manager
+- External Secrets Operator
+- NGINX Gateway Fabric
+- Gateway API
+- Kyverno
+- Falco
+- Prometheus
+- Grafana
+- Alertmanager
+- Kubecost
+- KEDA
+- Reloader
+- Velero
+- Storage Classes
+- Vault
+
+### Infrastructure Deployment Workflow
+
+Terraform executes the infrastructure deployment in a layered approach:
+
+1. Provision Google Cloud infrastructure.
+2. Create the GKE cluster and node pools.
+3. Configure IAM and Workload Identity Federation.
+4. Install Kubernetes platform components using Helm.
+5. Configure storage classes, ingress, certificates, secrets, monitoring, security policies, and backup services.
+6. Prepare the platform for GitOps-based application deployment with ArgoCD.
+
+### Key Characteristics
+
+- Fully automated infrastructure provisioning
+- Modular Terraform architecture
+- Environment-specific deployments
+- Idempotent infrastructure changes
+- Version-controlled Infrastructure as Code (IaC)
+- Automated platform bootstrapping
+- Production-ready Kubernetes foundation
+---
