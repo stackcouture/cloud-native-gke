@@ -35,6 +35,15 @@ Architecture at a glance
 | **Platform Automation** | Operational automation and self-healing | Python-based automation services |
 
 
+### Project Repositories
+
+| Repository | Link |
+|------------|------|
+| Infrastructure | https://github.com/stackcouture/platform-infra |
+| GitOps | https://github.com/stackcouture/gitops-microservices-platform |
+| Application | https://github.com/stackcouture/voting-app |
+| Platform Automation | https://github.com/stackcouture/platform-automation |
+
 ## Platform Layers
 
 ### 1. Infrastructure Layer
@@ -1128,5 +1137,193 @@ Provides operational automation, including:
 - Simplified collaboration
 - Better security and access control
 - Production-ready repository organization
+
+---
+## Demo Walkthrough
+
+This walkthrough demonstrates the complete lifecycle of the platform, from infrastructure provisioning to application deployment, monitoring, security, and operations.
+
+### 1. Provision Infrastructure
+
+Deploy the cloud infrastructure using Terraform.
+
+**Demonstrates:**
+
+- Virtual Private Cloud (VPC)
+- Google Kubernetes Engine (GKE)
+- Cloud SQL (PostgreSQL)
+- Artifact Registry
+- IAM and Workload Identity Federation
+- Terraform modular architecture
+
+---
+
+### 2. Bootstrap the Kubernetes Platform
+
+Install the shared Kubernetes platform services.
+
+**Demonstrates:**
+
+- ArgoCD
+- Argo Rollouts
+- Gateway API
+- NGINX Gateway Fabric
+- Cert-Manager
+- External Secrets Operator
+- Kyverno
+- Falco
+- Prometheus
+- Grafana
+- Alertmanager
+- Kubecost
+- KEDA
+- Velero
+- Reloader
+
+---
+
+### 3. Deploy the Application
+
+Deploy the Vote, Result, and Worker services using GitOps.
+
+**Demonstrates:**
+
+- GitOps workflow
+- Kustomize overlays
+- ArgoCD synchronization
+- Environment-specific deployments
+
+---
+
+### 4. Execute the CI/CD Pipeline
+
+Commit a change to the application repository and observe the automated pipeline.
+
+**Pipeline Stages:**
+
+- Source code checkout
+- Dependency installation
+- Unit testing
+- Docker image build
+- Trivy vulnerability scan
+- SBOM generation
+- Cosign image signing
+- Push image to Artifact Registry
+- Automatic GitOps repository update
+
+---
+
+### 5. Observe Progressive Delivery
+
+Watch Argo Rollouts deploy the new application version.
+
+**Demonstrates:**
+
+- Canary deployment
+- Blue-Green deployment
+- Progressive traffic shifting
+- Automated rollout promotion
+- Rollback capabilities
+
+---
+
+### 6. Explore Security Controls
+
+Review the platform's built-in security features.
+
+**Demonstrates:**
+
+- Kyverno policy enforcement
+- Workload Identity Federation
+- Kubernetes RBAC
+- External Secrets integration
+- Container image signing
+- Vulnerability scanning
+- Runtime security with Falco
+
+---
+
+### 7. Monitor the Platform
+
+Access the monitoring dashboards.
+
+**Demonstrates:**
+
+- Prometheus metrics
+- Grafana dashboards
+- Alertmanager alerts
+- PostgreSQL exporter
+- Redis exporter
+- Application health metrics
+
+---
+
+### 8. Review Cost Optimization
+
+Inspect Kubernetes resource utilization and cost insights.
+
+**Demonstrates:**
+
+- Kubecost dashboards
+- Namespace cost allocation
+- Resource utilization
+- Capacity planning
+- Optimization recommendations
+
+---
+
+### 9. Verify Autoscaling
+
+Generate application load and observe automatic scaling.
+
+**Demonstrates:**
+
+- KEDA event-driven autoscaling
+- Horizontal Pod Autoscaler (HPA)
+- Cluster Autoscaler
+- Dynamic workload scaling
+
+---
+
+### 10. Backup and Restore
+
+Demonstrate platform resilience using Velero.
+
+**Demonstrates:**
+
+- Backup creation
+- Resource restoration
+- Persistent volume recovery
+- Disaster recovery workflow
+
+---
+
+### 11. Platform Automation
+
+Run the platform automation services.
+
+**Demonstrates:**
+
+- Cluster health validation
+- Infrastructure verification
+- Platform health reporting
+- Scheduled operational tasks
+
+---
+
+## Expected Outcome
+
+By the end of this walkthrough, the platform demonstrates:
+
+- Automated infrastructure provisioning
+- Production-ready Kubernetes platform
+- GitOps-based application delivery
+- Progressive deployment strategies
+- Integrated DevSecOps practices
+- Centralized observability
+- Event-driven autoscaling
+- Cost visibility and optimization
+- Backup and disaster recovery
+- Python-based operational automation
 
 ---
