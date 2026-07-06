@@ -48,7 +48,7 @@ Architecture at a glance
 
 The following demo the complete platform deployment on GCP.
 
-![Demo](docs/demo.gif "Platform Demo")
+![Demo](docs/demo-latest.gif "Platform Demo")
 
 ---
 
