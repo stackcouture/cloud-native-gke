@@ -193,8 +193,20 @@ Automation includes:
 - Operational self-healing workflows
 
 These automation services reduce manual effort, improve platform reliability, and streamline day-to-day operations.
----
 
+Architectural principles
+
+- Infrastructure as Code (Terraform)
+- GitOps-driven continuous delivery
+- Immutable infrastructure
+- Declarative Kubernetes configuration
+- Platform self-service
+- Security by default & policy as code
+- Progressive delivery
+- Infrastructure reusability across environments
+- Production-grade observability
+- Automated platform operations
+---
 
 ## Technology Stack
 
@@ -217,3 +229,38 @@ These automation services reduce manual effort, improve platform reliability, an
 | **Programming Languages** | Python, YAML, Bash |
 | **Version Control** | Git, GitHub |
 ---
+
+## Key Capabilities
+
+- **Infrastructure as Code (IaC)** – Provision and manage cloud infrastructure using reusable Terraform modules with environment-specific configurations.
+
+- **Production-Ready Kubernetes Platform** – Deploy a secure and scalable Google Kubernetes Engine (GKE) platform with shared services and standardized operational practices.
+
+- **GitOps-Based Continuous Delivery** – Enable declarative, version-controlled deployments with ArgoCD, automated synchronization, drift detection, and environment promotion through Kustomize overlays.
+
+- **Automated CI/CD Pipelines** – Build, test, scan, sign, and publish container images using GitHub Actions, integrating security checks into every deployment.
+
+- **Progressive Delivery** – Perform Canary and Blue-Green deployments with Argo Rollouts to reduce deployment risk and support safe application releases.
+
+- **Policy-Driven Security** – Enforce Kubernetes best practices using Kyverno, Pod Security Standards (PSS), RBAC, Workload Identity Federation, and runtime security with Falco.
+
+- **Supply Chain Security** – Integrate vulnerability scanning with Trivy, generate Software Bill of Materials (SBOM), and sign container images using Cosign to strengthen software supply chain integrity.
+
+- **Secrets & Certificate Management** – Securely manage application secrets with External Secrets Operator, vault and Google Secret Manager, while automating TLS certificate issuance and renewal with Cert-Manager.
+
+- **Traffic Management & Networking** – Implement modern Kubernetes networking using Gateway API and NGINX Gateway Fabric for secure and flexible traffic routing.
+
+- **Observability & Alerting** – Monitor platform and application health with Prometheus, Grafana, Alertmanager, and exporter-based metrics for proactive issue detection.
+
+- **Event-Driven Autoscaling** – Dynamically scale workloads using KEDA, Horizontal Pod Autoscaler (HPA), and Cluster Autoscaler to optimize resource utilization.
+
+- **Cost Visibility & Optimization** – Monitor Kubernetes resource consumption and optimize cloud spending with Kubecost.
+
+- **Backup & Disaster Recovery** – Protect workloads and persistent data using Velero to support backup, restore, and disaster recovery operations.
+
+- **Platform Automation** – Automate operational tasks such as cluster health validation, infrastructure reporting, and routine maintenance through Python-based automation services.
+
+- **Modular & Reusable Architecture** – Organize infrastructure, platform components, and application deployments into reusable modules and repositories, enabling consistency across multiple environments.
+
+---
+
