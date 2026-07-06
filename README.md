@@ -656,3 +656,55 @@ Production Workload
 | **Infrastructure Repository** | Stores Terraform modules for provisioning cloud infrastructure and platform components. |
 
 ---
+## Security & Compliance
+
+Security is embedded throughout the platform following **DevSecOps** principles. Security controls are integrated into the infrastructure, CI/CD pipeline, Kubernetes platform, and runtime environment to protect workloads, enforce organizational policies, and strengthen the software supply chain.
+
+### Security Controls
+
+| Category | Technologies | Purpose |
+|----------|--------------|---------|
+| **Identity & Access Management** | IAM, Workload Identity Federation, Kubernetes RBAC | Secure authentication and least-privilege access to cloud and Kubernetes resources. |
+| **Policy Enforcement** | Kyverno | Enforce Kubernetes security policies, resource standards, and deployment best practices. |
+| **Secrets Management** | External Secrets Operator, Google Secret Manager, Vault | Securely manage application secrets without storing sensitive information in Git repositories. |
+| **Container Security** | Trivy | Scan container images for vulnerabilities before deployment. |
+| **Software Supply Chain** | SBOM, Cosign | Generate Software Bill of Materials (SBOM) and cryptographically sign container images to verify authenticity and integrity. |
+| **Runtime Security** | Falco | Monitor Kubernetes workloads for suspicious or unauthorized runtime activity. |
+| **Network Security** | Private VPC, Firewall Rules, Gateway API, Network Policies | Protect workloads using controlled network access and secure traffic routing. |
+| **Transport Security** | Cert-Manager, Let's Encrypt | Automate TLS certificate provisioning and renewal for encrypted communication. |
+
+### Security Practices
+
+The platform implements the following security best practices:
+
+- Infrastructure as Code with version-controlled Terraform modules
+- Least-privilege access using IAM and Kubernetes RBAC
+- Workload Identity Federation for secure authentication without long-lived service account keys
+- Policy-as-Code enforcement using Kyverno
+- Container image vulnerability scanning during CI
+- Software Bill of Materials (SBOM) generation for supply chain transparency
+- Keyless container image signing using Cosign
+- Runtime threat detection with Falco
+- Centralized secrets management using External Secrets Operator
+- Automated TLS certificate lifecycle management
+- Private networking for critical cloud resources
+- GitOps-based deployments with a fully auditable change history
+
+### Compliance Alignment
+
+The platform incorporates security controls commonly associated with modern cloud security and compliance frameworks, including:
+
+- Least Privilege Access
+- Defense in Depth
+- Zero Trust Principles
+- Infrastructure as Code (IaC)
+- Policy as Code
+- GitOps
+- Secure Software Supply Chain
+- Continuous Vulnerability Management
+- Encryption in Transit
+- Auditability and Change Tracking
+
+> **Note:** This project demonstrates security practices aligned with industry standards and production-grade platform engineering. It is intended as a technical implementation and is not presented as a certified or audited compliance environment.
+
+---
