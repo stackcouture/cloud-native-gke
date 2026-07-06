@@ -35,60 +35,185 @@ Architecture at a glance
 | **Platform Automation** | Operational automation and self-healing | Python-based automation services |
 
 
-1. Infrastructure Layer
+## Platform Layers
 
-Provisioned entirely with Terraform, this layer lays the cloud foundation the platform runs on: a VPC with private subnets, Cloud Router and Cloud NAT for controlled egress, firewall rules, IAM and Workload Identity Federation, the GKE cluster itself, Cloud SQL (PostgreSQL), Artifact Registry, Cloud Storage, and the service accounts that tie it all together.
+### 1. Infrastructure Layer
 
-Infrastructure is organized into reusable Terraform modules and deployed consistently across Development and Production environments — the same modules, different variables.
+The **Infrastructure Layer** is fully provisioned using **Terraform**, providing the cloud foundation required to operate the platform.
 
-2. Platform Layer
+It provisions:
 
-Once the cluster exists, this layer installs the shared Kubernetes services every application team relies on: ArgoCD and Argo Rollouts for delivery, Gateway API and NGINX Gateway for traffic management, Cert-Manager and External Secrets Operator for certificates and secrets, Kyverno and Falco for policy and runtime security, Prometheus/Grafana/Alertmanager for monitoring, Kubecost for cost visibility, KEDA for autoscaling, Velero for backup and disaster recovery, and Reloader for automatic config reloads.
+- VPC 
+- Cloud Router and Cloud NAT for controlled outbound access
+- Firewall rules
+- IAM roles and Workload Identity Federation
+- Google Kubernetes Engine (GKE)
+- Cloud SQL (PostgreSQL)
+- Artifact Registry
+- Cloud Storage
+- Service Accounts
 
-These components turn a bare Kubernetes cluster into a genuine internal developer platform.
+Infrastructure is organized into reusable Terraform modules, enabling consistent deployments across **Development** and **Production** environments by reusing the same modules with environment-specific variables.
 
-3. GitOps Layer
+---
 
-Application deployment follows a strict GitOps model — no one deploys directly to the cluster. Application changes are committed to the GitOps repository, and ArgoCD continuously reconciles the live cluster state against what's declared in Git.
+### 2. Platform Layer
 
-This delivers:
+After the Kubernetes cluster is provisioned, the **Platform Layer** installs the shared services required by application teams.
+
+Platform components include:
+
+- ArgoCD
+- Argo Rollouts
+- Gateway API
+- NGINX Gateway Fabric
+- Cert-Manager
+- External Secrets Operator
+- Kyverno
+- Falco
+- Prometheus
+- Grafana
+- Alertmanager
+- Kubecost
+- KEDA
+- Velero
+- Reloader
+
+These services transform a standard Kubernetes cluster into a production-ready Internal Developer Platform (IDP).
+
+---
+
+### 3. GitOps Layer
+
+Application delivery follows a **GitOps** workflow where all deployment changes are managed through Git. Direct deployments to the Kubernetes cluster are not permitted.
+
+**ArgoCD** continuously reconciles the desired state stored in Git with the live cluster state.
+
+#### GitOps Capabilities
 
 - Declarative, version-controlled deployments
 - Automatic synchronization and drift detection
 - One-command rollback
-- Environment promotion via Kustomize overlays
+- Environment promotion using Kustomize overlays
 
-4. Application Layer
+---
 
-The reference workload is a small cloud-native microservices application — a Vote, Result, and Worker service backed by PostgreSQL and Redis. Manifests are managed with Kustomize using separate overlays per environment, and Argo Rollouts drives progressive delivery through Canary and Blue-Green strategies.
+### 4. Application Layer
 
-5. CI/CD Layer
+The platform hosts a cloud-native microservices application consisting of:
 
-GitHub Actions runs the CI pipeline on every commit: checkout, dependency install, unit tests, Docker image build, Trivy vulnerability scanning, SBOM generation, Cosign image signing, and an image push to Artifact Registry — followed by an automated update to the GitOps manifests. From there, ArgoCD takes over and deploys the new version.
+- Vote Service
+- Result Service
+- Worker Service
+- PostgreSQL
+- Redis
 
-6. Security Layer
+Application manifests are managed using **Kustomize**, with separate overlays for each environment.
 
-Security is applied as a DevSecOps concern woven through every layer rather than bolted on at the end: Kyverno policy enforcement, Pod Security Standards, network policies, RBAC, externally managed secrets, Workload Identity Federation, image vulnerability scanning, SBOM generation, Cosign signing, and Falco for runtime threat detection. Together, these controls ensure nothing reaches production without meeting policy.
+Progressive delivery is implemented using **Argo Rollouts**, supporting:
 
-7. Observability Layer
+- Canary Deployments
+- Blue-Green Deployments
 
-Prometheus, Grafana, and Alertmanager provide centralized monitoring, backed by ServiceMonitors and dedicated Redis/PostgreSQL exporters, covering both application and infrastructure metrics. This gives the platform proactive alerting, capacity planning, and performance visibility out of the box.
+---
 
-8. Platform Automation Layer
+### 5. CI/CD Layer
 
-A set of Python-based automation services handles the operational grind: daily platform health reports, cluster health validation, infrastructure reporting, and scheduled maintenance — reducing manual toil and improving reliability over time.
+Continuous Integration is implemented using **GitHub Actions**.
+
+The pipeline performs:
+
+1. Source code checkout
+2. Dependency installation
+3. Unit testing
+4. Docker image build
+5. Trivy vulnerability scanning
+6. SBOM generation
+7. Cosign image signing
+8. Push image to Artifact Registry
+9. Update GitOps manifests automatically
+
+Once the GitOps repository is updated, **ArgoCD** automatically synchronizes the cluster with the latest application version.
+
+---
+
+### 6. Security Layer
+
+Security is integrated throughout the platform using a DevSecOps approach.
+
+Key security capabilities include:
+
+- Kyverno policy enforcement
+- Pod Security Standards (PSS)
+- Kubernetes Network Policies
+- Role-Based Access Control (RBAC)
+- External Secrets Operator
+- Workload Identity Federation
+- Trivy image vulnerability scanning
+- Software Bill of Materials (SBOM)
+- Cosign container image signing
+- Falco runtime threat detection
+
+These controls ensure workloads comply with organizational security policies before reaching production.
+
+---
+
+### 7. Observability Layer
+
+Platform observability is powered by:
+
+- Prometheus
+- Grafana
+- Alertmanager
+
+Monitoring includes:
+
+- Kubernetes cluster metrics
+- Application metrics
+- Redis exporter metrics
+- PostgreSQL exporter metrics
+- ServiceMonitors
+- Alerting rules
+- Grafana dashboards
+
+This provides comprehensive visibility into platform health, application performance, and infrastructure utilization.
+
+---
+
+### 8. Platform Automation Layer
+
+Operational tasks are automated using Python-based services.
+
+Automation includes:
+
+- Daily platform health reports
+- Cluster health validation
+- Infrastructure reporting
+- Scheduled maintenance tasks
+- Operational self-healing workflows
+
+These automation services reduce manual effort, improve platform reliability, and streamline day-to-day operations.
+---
 
 
-Architectural principles
+## Technology Stack
 
-- Infrastructure as Code (Terraform)
-- GitOps-driven continuous delivery
-- Immutable infrastructure
-- Declarative Kubernetes configuration
-- Platform self-service
-- Security by default & policy as code
-- Progressive delivery
-- Infrastructure reusability across environments
-- Production-grade observability
-- Automated platform operations
+| Category | Technologies |
+|----------|--------------|
+| **Cloud Platform** | Google Cloud Platform (GCP), Virtual Private Cloud (VPC), Cloud Router, Cloud NAT, Cloud Storage, Cloud SQL (PostgreSQL), Artifact Registry |
+| **Infrastructure as Code** | Terraform |
+| **Container Platform** | Docker, Google Kubernetes Engine (GKE) |
+| **GitOps & Continuous Delivery** | ArgoCD, Argo Rollouts, Kustomize |
+| **CI/CD** | GitHub Actions |
+| **Traffic Management** | Gateway API, NGINX Gateway Fabric |
+| **Security** | Kyverno, Falco, Workload Identity Federation, Kubernetes RBAC, Pod Security Standards (PSS), External Secrets Operator, Cosign, Trivy, SBOM |
+| **Secrets & Certificates** | Vault, External Secrets Operator, Google Secret Manager, Cert-Manager, Let's Encrypt |
+| **Observability** | Prometheus, Grafana, Alertmanager |
+| **Autoscaling** | KEDA, Horizontal Pod Autoscaler (HPA), Cluster Autoscaler |
+| **Cost Management** | Kubecost |
+| **Backup & Disaster Recovery** | Velero |
+| **Configuration Management** | Reloader |
+| **Databases & Messaging** | PostgreSQL (Cloud SQL), Redis |
+| **Programming Languages** | Python, YAML, Bash |
+| **Version Control** | Git, GitHub |
 ---
