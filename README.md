@@ -32,138 +32,142 @@ This repository serves as the entry point for the complete Platform Engineering 
 ---
 ### Recommended Repository Structure
 
+
+A production-grade **Platform Engineering Portfolio** demonstrating Infrastructure as Code, GitOps, Kubernetes Platform Engineering, Security, Observability, Progressive Delivery, and CI/CD automation on Google Cloud Platform.
+
+```text
 Platform Engineering Portfolio
 │
-├── platform-infra
-│     Infrastructure as Code
-│     
-├───.github
-│   ├───actions
-│   │   └───gcp-auth
-│   └───workflows
-└───terraform
-    ├───environments
-    │   ├───dev
-    │   │   ├───cloud-sql
-    │   │   ├───gke
-    │   │   ├───iam
-    │   │   ├───networking
-    │   │   ├───platform
-    │   │   │   ├───argo-rollouts
-    │   │   │   ├───argocd
-    │   │   │   ├───cert-manager
-    │   │   │   ├───external-secrets
-    │   │   │   ├───falco
-    │   │   │   ├───ingress
-    │   │   │   ├───keda
-    │   │   │   ├───kubecost
-    │   │   │   ├───kyverno
-    │   │   │   ├───monitoring
-    │   │   │   ├───nginx-gateway
-    │   │   │   ├───reloader
-    │   │   │   ├───storage-classes
-    │   │   │   ├───vault
-    │   │   │   └───velero
-    │   │   │       
-    │   │   └───storage
-    │   │       ├───artifact-registry
-    │   │       │ 
-    │   │       └───cloud-storage
-    │   │           
-    │   └───prod
-    └───modules
-        ├───cloud-sql
-        ├───gke
-        ├───iam
-        ├───networking
-        ├───platform
-        │   ├───argo-rollouts
-        │   ├───argocd
-        │   ├───cert-manager
-        │   ├───external-secrets
-        │   ├───falco
-        │   ├───ingress
-        │   ├───istio
-        │   ├───keda
-        │   ├───kubecost
-        │   ├───kyverno
-        │   ├───monitoring
-        │   ├───nginx-gateway
-        │   ├───reloader
-        │   ├───storage-classes
-        │   ├───vault
-        │   └───velero
-        └───storage
-            ├───artifact-registry
-            └───cloud-storage
-
-gitops-microservices-platform/
-├── apps/                        # Business applications
+├── platform-infra/                    # Infrastructure as Code (Terraform)
+│   │
+│   ├── .github/
+│   │   ├── actions/
+│   │   │   └── gcp-auth/
+│   │   └── workflows/
+│   │
+│   └── terraform/
+│       ├── environments/
+│       │   ├── dev/
+│       │   │   ├── networking/
+│       │   │   ├── iam/
+│       │   │   ├── gke/
+│       │   │   ├── cloud-sql/
+│       │   │   ├── storage/
+│       │   │   │   ├── artifact-registry/
+│       │   │   │   └── cloud-storage/
+│       │   │   └── platform/
+│       │   │       ├── argocd/
+│       │   │       ├── argo-rollouts/
+│       │   │       ├── cert-manager/
+│       │   │       ├── external-secrets/
+│       │   │       ├── falco/
+│       │   │       ├── ingress/
+│       │   │       ├── keda/
+│       │   │       ├── kubecost/
+│       │   │       ├── kyverno/
+│       │   │       ├── monitoring/
+│       │   │       ├── nginx-gateway/
+│       │   │       ├── reloader/
+│       │   │       ├── storage-classes/
+│       │   │       ├── vault/
+│       │   │       └── velero/
+│       │   │
+│       │   └── prod/
+│       │
+│       └── modules/
+│           ├── networking/
+│           ├── iam/
+│           ├── gke/
+│           ├── cloud-sql/
+│           ├── storage/
+│           │   ├── artifact-registry/
+│           │   └── cloud-storage/
+│           └── platform/
+│               ├── argocd/
+│               ├── argo-rollouts/
+│               ├── cert-manager/
+│               ├── external-secrets/
+│               ├── falco/
+│               ├── ingress/
+│               ├── istio/
+│               ├── keda/
+│               ├── kubecost/
+│               ├── kyverno/
+│               ├── monitoring/
+│               ├── nginx-gateway/
+│               ├── reloader/
+│               ├── storage-classes/
+│               ├── vault/
+│               └── velero/
+│
+├── gitops-microservices-platform/     # GitOps Repository
+│   │
+│   ├── apps/
+│   │   ├── vote/
+│   │   │   ├── base/
+│   │   │   └── overlays/
+│   │   │       ├── dev/
+│   │   │       └── prod/
+│   │   │
+│   │   ├── result/
+│   │   │   ├── base/
+│   │   │   └── overlays/
+│   │   │       ├── dev/
+│   │   │       └── prod/
+│   │   │
+│   │   └── worker/
+│   │       ├── base/
+│   │       └── overlays/
+│   │           ├── dev/
+│   │           └── prod/
+│   │
+│   ├── infrastructure/
+│   │   ├── postgres/
+│   │   ├── redis/
+│   │   ├── pgadmin/
+│   │   └── external-secrets-sa/
+│   │
+│   ├── platform/
+│   │   ├── namespaces/
+│   │   ├── gateway-api/
+│   │   ├── ingress/
+│   │   ├── clusterissuer/
+│   │   ├── cluster-secrets/
+│   │   ├── monitoring/
+│   │   │   ├── postgres-exporter/
+│   │   │   └── redis-exporter/
+│   │   └── velero/
+│   │
+│   ├── security/
+│   │   ├── kyverno/
+│   │   ├── falco/
+│   │   └── network-policies/
+│   │
+│   ├── governance/
+│   │   ├── argocd/
+│   │   ├── cert-manager/
+│   │   ├── monitoring/
+│   │   ├── postgres/
+│   │   ├── redis/
+│   │   └── vote/
+│   │
+│   ├── automation/
+│   │   ├── common/
+│   │   └── daily-platform-report/
+│   │
+│   └── argocd/
+│       ├── applicationsets/
+│       └── projects/
+│
+├── voting-app/                        # Application Source Code
 │   ├── vote/
-│   │   ├── base/
-│   │   └── overlays/
-│   │       ├── dev/
-│   │       └── prod/
 │   ├── result/
-│   │   ├── base/
-│   │   └── overlays/
-│   │       ├── dev/
-│   │       └── prod/
-│   └── worker/
-│       ├── base/
-│       └── overlays/
-│           ├── dev/
-│           └── prod/
+│   ├── worker/
+│   └── .github/
+│       └── workflows/
 │
-├── infrastructure/             # Stateful infrastructure (Postgres, Redis, PgAdmin)
-│   ├── postgres/
-│   ├── redis/
-│   ├── pgadmin/
-│   └── external-secrets-sa/
-│
-├── platform/					# Shared platform services
-│   ├── namespaces/
-│   ├── gateway-api/
-│   ├── ingress/
-│   ├── clusterissuer/
-│   ├── cluster-secrets/
-│   ├── monitoring/
-│   │   ├── postgres-exporter/
-│   │   └── redis-exporter/
-│   └── velero/
-│	
-├── security/					# Security policies & runtime protection
-│   ├── kyverno/
-│   ├── falco/
-│   └── network-policies/
-│
-├── governance/					# Resource quotas & namespace governance
-│   ├── argocd/
-│   ├── cert-manager/
-│   ├── monitoring/
-│   ├── postgres/
-│   ├── redis/
-│   └── vote/
-│
-├── automation/					# CronJobs & platform automation
-│   ├── common/
-│   └── daily-platform-report/
-│
-├── argocd/						# ArgoCD Projects & ApplicationSets
-	├── applicationsets/
-	└── projects/
- 
-	  
-
-├── voting-app  Application Source Code
-│     ├── vote
-│     ├── result
-│     ├── worker
-│     └── GitHub Actions CI
-
-
-	  
-├── platform-automation
-│     └── Daily-platform-report 
+└── platform-automation/               # Platform Automation
+    └── daily-platform-report/
+```
 
 ---
