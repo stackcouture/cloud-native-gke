@@ -38,7 +38,7 @@ The portfolio demonstrates a complete Platform Engineering lifecycle, covering i
 - [💾 Disaster Recovery](#disaster-recovery)
 - [💰 Cost Optimization](#cost-optimization)
 - [🤖 Platform Automation](#platform-automation)
-- [🎥 Demo Walkthrough](#demo-walkthrough)
+- [🎥 Project Walkthrough](#project-walkthrough)
 - [🔮 Future Enhancements](#future-enhancements)
 - [📚 Learning Outcomes](#learning-outcomes)
 
@@ -1172,7 +1172,10 @@ The platform automation services are designed around the following principles:
 - **Scalability** – Automation services can be extended to support additional operational use cases as the platform evolves.
 
 ---
-## Demo Walkthrough
+## Project Walkthrough
+
+
+![Project Diagram](docs/images/platform-demo.png "Platform Architecture")
 
 This walkthrough demonstrates the complete lifecycle of the platform, from infrastructure provisioning to application deployment, monitoring, security, and operations.
 
