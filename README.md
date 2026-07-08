@@ -14,7 +14,7 @@ The portfolio demonstrates a complete Platform Engineering lifecycle, covering i
 ## Solution Architecture
 
 The following architecture illustrates the complete platform deployment on GCP.
-![Architecture Diagram](docs/images/platform_engineering_architecture.png "Platform Architecture")
+![Architecture Diagram](docs/images/platform_solution.png "Platform Architecture")
 
 
 This platform is built on a layered architecture that cleanly separates infrastructure provisioning, platform services, application delivery, and operations. Each layer owns a single responsibility, which keeps the system modular, independently scalable, and easier to secure and maintain as it grows.
@@ -43,12 +43,6 @@ Architecture at a glance
 | GitOps | https://github.com/stackcouture/gitops-microservices-platform |
 | Application | https://github.com/stackcouture/voting-app |
 | Platform Automation | https://github.com/stackcouture/platform-automation |
-
----
-
-The following demo the complete platform deployment on GCP.
-
-![Demo](docs/images/platform_arch.png "Platform Demo")
 
 ---
 ## Platform Layers
