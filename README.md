@@ -43,6 +43,7 @@ The portfolio demonstrates a complete Platform Engineering lifecycle, covering i
 - [🎥 Project Walkthrough](#project-walkthrough)
 - [🔮 Future Enhancements](#future-enhancements)
 - [📚 Learning Outcomes](#learning-outcomes)
+- [🙏 Acknowledgements](#acknowledgements)
 
 ---
 ## Solution Architecture
@@ -1539,4 +1540,14 @@ Through this project, I strengthened my ability to:
 * Troubleshoot complex cloud-native infrastructure systematically.
 * Integrate infrastructure, Kubernetes, GitOps, CI/CD, security, and observability into a cohesive Platform Engineering platform.
 
+---
+## 🙏 Acknowledgements
+
+The sample application used in this portfolio is based on Docker's Example Voting App.
+
+- Original project: https://github.com/dockersamples/example-voting-app
+- Original authors: Docker, Inc.
+- License: Apache License 2.0
+
+This repository extends the original sample by implementing a production-oriented Platform Engineering solution on Google Cloud Platform, including Infrastructure as Code (Terraform), GitOps with Argo CD, CI/CD with GitHub Actions, Kubernetes platform services, security, observability, progressive delivery, backup and disaster recovery, cost optimization, and platform automation.
 ---
