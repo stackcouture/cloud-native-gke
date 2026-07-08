@@ -1,4 +1,4 @@
-## Project Overview
+## 🚀 Project Overview
 
 This Platform Engineering Portfolio demonstrates the design, provisioning, deployment, security, and operation of a production-ready cloud-native application platform on Google Cloud Platform (GCP). The project follows modern Platform Engineering principles by separating infrastructure provisioning, platform services, application delivery, and operational automation into dedicated repositories.
 
@@ -9,6 +9,34 @@ Application delivery follows a GitOps workflow using ArgoCD and Kustomize, enabl
 Security is integrated throughout the platform using policy enforcement, runtime security, secrets management, network segmentation, and container image verification. Observability is provided through centralized monitoring, metrics collection, alerting, and cost visibility.
 
 The portfolio demonstrates a complete Platform Engineering lifecycle, covering infrastructure provisioning, platform management, application deployment, security, observability, automation, and progressive delivery using production-oriented engineering practices.
+
+---
+## 📑 Table of Contents
+- [🏗️ Solution Architecture](#solution-architecture)
+- [🏛️ Platform Layers](#platform-layers)
+  - [🏗️ Infrastructure Layer](#-infrastructure-layer)
+  - [⚙️ Platform Layer](#-platform-layer)
+  - [🔄 GitOps Layer](#-gitops-layer)
+  - [🗳️ Application Layer](#-application-layer)
+  - [🚀 CI/CD Layer](#-cicd-layer)
+  - [🛡️ Security Layer](#-security-layer)
+  - [📊 Observability Layer](#-observability-layer)
+  - [🤖 Platform Automation Layer](#-platform-automation-layer)
+- [🛠️ Technology Stack](#technology-stack)
+- [⭐ Key Capabilities](#key-capabilities)
+- [📂 Repository Structure](#repository-structure)
+- [📖 Repository Overview](#-repository-overview)
+- [📌 Layer Responsibilities](#layer-responsibilities)
+- [🔗 How It Fits Together](#how-it-fits-together)
+- [🚀 CI/CD Pipeline](#-cicd-pipeline)
+- [🔄 GitOps Workflow](#-gitops-workflow)
+- [🛡️ Security & Compliance](#-security--compliance)
+- [📈 Observability & Monitoring](#-observability--monitoring)
+- [🚦 Progressive Delivery](#-progressive-delivery)
+- [💾 Disaster Recovery](#-disaster-recovery)
+- [💰 Cost Optimization](#-cost-optimization)
+- [🤖 Platform Automation](#-platform-automation)
+- [🎥 Demo Walkthrough](#-demo-walkthrough)
 
 ---
 ## Solution Architecture
