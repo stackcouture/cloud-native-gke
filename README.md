@@ -1541,7 +1541,7 @@ Through this project, I strengthened my ability to:
 * Integrate infrastructure, Kubernetes, GitOps, CI/CD, security, and observability into a cohesive Platform Engineering platform.
 
 ---
-## 🙏 Acknowledgements
+## Acknowledgements
 
 The sample application used in this portfolio is based on Docker's Example Voting App.
 
@@ -1550,4 +1550,5 @@ The sample application used in this portfolio is based on Docker's Example Votin
 - License: Apache License 2.0
 
 This repository extends the original sample by implementing a production-oriented Platform Engineering solution on Google Cloud Platform, including Infrastructure as Code (Terraform), GitOps with Argo CD, CI/CD with GitHub Actions, Kubernetes platform services, security, observability, progressive delivery, backup and disaster recovery, cost optimization, and platform automation.
+
 ---
