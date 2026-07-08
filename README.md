@@ -10,6 +10,8 @@ Security is integrated throughout the platform using policy enforcement, runtime
 
 The portfolio demonstrates a complete Platform Engineering lifecycle, covering infrastructure provisioning, platform management, application deployment, security, observability, automation, and progressive delivery using production-oriented engineering practices.
 
+![Project Overview](docs/images/Canary-vs-blue-green.gif "Project Demo")
+
 ---
 ## 📑 Table of Contents
 
