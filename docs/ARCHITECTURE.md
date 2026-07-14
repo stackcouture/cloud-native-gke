@@ -71,6 +71,8 @@ Each layer has a well-defined responsibility and communicates with adjacent laye
 ---
 ## High-Level Architecture
 
+![High Level](images/platform_3.png "High Level")
+
 ```text
                    Developers
                         │
