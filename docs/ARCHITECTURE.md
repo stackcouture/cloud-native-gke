@@ -220,21 +220,7 @@ This approach eliminates hardcoded credentials from the repository.
 
 Monitoring is centralized using Prometheus and Grafana.
 
-```text
-Applications
-      │
-      ▼
-ServiceMonitor
-      │
-      ▼
-Prometheus
-      │
-      ▼
-Alertmanager
-      │
-      ▼
-Grafana
-```
+![Monitor](images/monitor.png "Monitor")
 
 The monitoring stack provides:
 
