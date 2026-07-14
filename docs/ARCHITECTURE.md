@@ -64,7 +64,7 @@ Every workload should expose metrics and be observable through centralized monit
 The platform consists of four logical layers.
 
 <p align="center">
-  <img src="images/platform_2.png" width="350" alt="Platform Layers">
+  <img src="images/platform_2.png" width="550" alt="Platform Layers">
 </p>
 
 
