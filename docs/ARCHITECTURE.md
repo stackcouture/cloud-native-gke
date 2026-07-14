@@ -63,29 +63,8 @@ Every workload should expose metrics and be observable through centralized monit
 
 The platform consists of four logical layers.
 
-```text
-+------------------------------------------------------+
-|                  Application Layer                   |
-| Vote • Result • Worker                              |
-+------------------------------------------------------+
+![Platform Layers](images/platform_1.png "Platform Layers")
 
-+------------------------------------------------------+
-|                 Platform Services                    |
-| Argo CD • Kyverno • cert-manager                    |
-| External Secrets • Gateway API                      |
-| Prometheus • Grafana                                |
-+------------------------------------------------------+
-
-+------------------------------------------------------+
-|               Kubernetes Platform                    |
-| Google Kubernetes Engine                            |
-+------------------------------------------------------+
-
-+------------------------------------------------------+
-|              Google Cloud Infrastructure             |
-| Networking • IAM • Storage • Registry               |
-+------------------------------------------------------+
-```
 
 Each layer has a well-defined responsibility and communicates with adjacent layers through standard Kubernetes APIs.
 
