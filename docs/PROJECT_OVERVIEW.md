@@ -34,7 +34,7 @@ This project addresses those gaps by implementing a production-inspired platform
 ## High-Level Architecture
 
 <p align="center">
-  <img src="images/high_level_arch.png" width="350" alt="Project Overview">
+  <img src="images/high_level_arch.png" width="550" alt="Project Overview">
 </p>
 
 ---
