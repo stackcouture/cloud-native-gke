@@ -170,25 +170,9 @@ Failed health checks pause or roll back the deployment before affecting all user
 
 The platform follows a layered security model.
 
-```text
-Internet
-    │
-Cloudflare
-    │
-Gateway API
-    │
-Kyverno Policies
-    │
-Namespaces
-    │
-RBAC
-    │
-Application Pods
-    │
-External Secrets
-    │
-Google Secret Manager
-```
+<p align="center">
+  <img src="images/manager_flow.png" width="350" alt="Security Architecture">
+</p>
 
 Security controls include:
 
