@@ -63,7 +63,9 @@ Every workload should expose metrics and be observable through centralized monit
 
 The platform consists of four logical layers.
 
-![Platform Layers](images/platform_2.png "Platform Layers")
+<p align="center">
+  <img src="images/platform_2.png" width="350" alt="Platform Layers">
+</p>
 
 
 Each layer has a well-defined responsibility and communicates with adjacent layers through standard Kubernetes APIs.
@@ -134,8 +136,9 @@ PostgreSQL
 
 Application delivery follows a GitOps workflow.
 
-![Deployment](images/deployment.png "Deployment")
-
+<p align="center">
+  <img src="images/deployment.png" width="350" alt="Deployment">
+</p>
 
 The Git repository is treated as the single source of truth for Kubernetes resources.
 
