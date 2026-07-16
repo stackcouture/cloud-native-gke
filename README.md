@@ -5,6 +5,23 @@ A production-inspired Kubernetes platform demonstrating Infrastructure as Code, 
 <!-- ![Project Overview](docs/images/Canary-vs-blue-green.gif "Project Demo") -->
 
 ---
+## 📖 Project Overview
+
+This repository demonstrates how a modern cloud-native platform can be built
+using production-inspired platform engineering practices on Google Kubernetes
+Engine (GKE).
+
+The project provisions infrastructure using Terraform, deploys applications
+through GitOps with Argo CD, secures workloads using Kyverno and External
+Secrets, implements Progressive Delivery with Argo Rollouts, monitors the
+platform using Prometheus and Grafana, and automates operational tasks such as
+autoscaling, certificate management, and cost visibility.
+
+Rather than focusing on deploying a single application, this project showcases
+the end-to-end lifecycle of designing, deploying, securing, observing, and
+operating a Kubernetes platform.
+
+---
 ### Solution Architecture
 
 The following architecture illustrates the complete platform deployment on GCP.
@@ -67,9 +84,49 @@ The following architecture illustrates the complete platform deployment on GCP.
 - [🙏 Acknowledgements](#acknowledgements)
 
 ---
-### Project Repositories
+## 📂 Repository Structure
 
-## 📂 Project Repositories
+This portfolio is organized into four repositories, each representing a core layer of a production-inspired Platform Engineering ecosystem.
+
+```text
+Platform Engineering Portfolio
+│
+├── platform-infra/                    # Infrastructure as Code
+│   ├── terraform/
+│   │   ├── environments/
+│   │   └── modules/
+│   └── .github/workflows/
+│
+├── gitops-microservices-platform/     # GitOps & Kubernetes Platform
+│   ├── apps/
+│   ├── infrastructure/
+│   ├── platform/
+│   ├── security/
+│   ├── governance/
+│   ├── automation/
+│   └── argocd/
+│
+├── voting-app/                        # Application Source Code
+│   ├── vote/
+│   ├── result/
+│   ├── worker/
+│   └── .github/workflows/
+│
+└── platform-automation/               # Day-2 Platform Operations
+    ├── automation/
+    ├── reports/
+    └── scripts/
+```
+
+| Repository | Description |
+|------------|-------------|
+| **platform-infra** | Terraform modules and environment configurations for provisioning Google Cloud infrastructure and installing core platform components. |
+| **gitops-microservices-platform** | GitOps repository containing Kubernetes manifests, Argo CD ApplicationSets, platform services, security policies, governance, and environment-specific configurations. |
+| **voting-app** | Polyglot microservices application with CI pipelines for building, testing, security scanning, and publishing container images. |
+| **platform-automation** | Python-based platform automation for operational tasks, scheduled jobs, health checks, reporting, and Day-2 platform operations. |
+
+---
+### 📂 Project Repositories
 
 | Repository | Purpose | Link |
 |------------|---------|------|
@@ -79,196 +136,25 @@ The following architecture illustrates the complete platform deployment on GCP.
 | 🤖 Platform Automation | Kubernetes CronJobs, Slack notifications, backup automation and operational scripts | https://github.com/stackcouture/platform-automation |
 
 ---
-## Platform Layers
+### 📚 Documentation
 
-### 1. Infrastructure Layer
+Explore the platform through the following documentation.
 
-The **Infrastructure Layer** is fully provisioned using **Terraform**, providing the cloud foundation required to operate the platform.
-
-It provisions:
-
-- VPC 
-- Cloud Router and Cloud NAT for controlled outbound access
-- Firewall rules
-- IAM roles and Workload Identity Federation
-- Google Kubernetes Engine (GKE)
-- Cloud SQL (PostgreSQL)
-- Artifact Registry
-- Cloud Storage
-- Service Accounts
-
-Infrastructure is organized into reusable Terraform modules, enabling consistent deployments across **Development** and **Production** environments by reusing the same modules with environment-specific variables.
+| Document | Description |
+|----------|-------------|
+| 📘 [PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md) | Complete overview of the platform, goals, repository organization, and key capabilities. |
+| 🏗️ [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Platform architecture, design principles, and component interactions. |
+| ☸️ [KUBERNETES.md](docs/KUBERNETES.md) | Kubernetes cluster design, namespaces, workloads, scheduling, storage, and platform services. |
+| ☁️ [INFRASTRUCTURE.md](docs/INFRASTRUCTURE.md) | Terraform modules, environment layout, GKE provisioning, networking, IAM, and cloud resources. |
+| 🚀 [GITOPS.md](docs/GITOPS.md) | GitOps workflow, Argo CD, ApplicationSets, Kustomize, and deployment strategy. |
+| ⚙️ [CICD.md](docs/CICD.md) | GitHub Actions workflows, container builds, security scanning, SBOM generation, image signing, and deployment automation. |
+| 🔒 [SECURITY.md](docs/SECURITY.md) | Platform security, Kyverno policies, Falco runtime security, External Secrets, RBAC, and certificate management. |
+| 🌐 [NETWORKING.md](docs/NETWORKING.md) | Gateway API, ingress, TLS automation, DNS, and traffic management. |
+| 📊 [OBSERVABILITY.md](docs/OBSERVABILITY.md) | Monitoring, logging, metrics, dashboards, alerting, and operational visibility. |
+| 📈 [AUTOSCALING.md](docs/AUTOSCALING.md) | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler, and scaling strategies. |
+| 🏛️ [DECISIONS.md](docs/DECISIONS.md) | Architecture Decision Records (ADRs), design trade-offs, and technology choices. |
 
 ---
-
-### 2. Platform Layer
-
-After the Kubernetes cluster is provisioned, the **Platform Layer** installs the shared services required by application teams.
-
-Platform components include:
-
-- ArgoCD
-- Argo Rollouts
-- Gateway API
-- NGINX Gateway Fabric
-- Cert-Manager
-- External Secrets Operator
-- Kyverno
-- Falco
-- Prometheus
-- Grafana
-- Alertmanager
-- Kubecost
-- KEDA
-- Velero
-- Reloader
-
-These services transform a standard Kubernetes cluster into a production-ready Internal Developer Platform (IDP).
-
----
-
-### 3. GitOps Layer
-
-Application delivery follows a **GitOps** workflow where all deployment changes are managed through Git. Direct deployments to the Kubernetes cluster are not permitted.
-
-**ArgoCD** continuously reconciles the desired state stored in Git with the live cluster state.
-
-#### GitOps Capabilities
-
-- Declarative, version-controlled deployments
-- Automatic synchronization and drift detection
-- One-command rollback
-- Environment promotion using Kustomize overlays
-
----
-
-### 4. Application Layer
-
-The platform hosts a cloud-native microservices application consisting of:
-
-- Vote Service
-- Result Service
-- Worker Service
-- PostgreSQL
-- Redis
-
-Application manifests are managed using **Kustomize**, with separate overlays for each environment.
-
-Progressive delivery is implemented using **Argo Rollouts**, supporting:
-
-- Canary Deployments
-- Blue-Green Deployments
-
----
-
-### 5. CI/CD Layer
-
-Continuous Integration is implemented using **GitHub Actions**.
-
-The pipeline performs:
-
-1. Source code checkout
-2. Dependency installation
-3. Docker image build
-4. Trivy vulnerability scanning
-5. SBOM generation
-6. Cosign image signing
-7. Push image to Artifact Registry
-8. Update GitOps manifests automatically
-
-Once the GitOps repository is updated, **ArgoCD** automatically synchronizes the cluster with the latest application version.
-
----
-
-### 6. Security Layer
-
-Security is integrated throughout the platform using a DevSecOps approach.
-
-Key security capabilities include:
-
-- Kyverno policy enforcement
-- Pod Security Standards (PSS)
-- Kubernetes Network Policies
-- Role-Based Access Control (RBAC)
-- External Secrets Operator
-- Workload Identity Federation
-- Trivy image vulnerability scanning
-- Software Bill of Materials (SBOM)
-- Cosign container image signing
-- Falco runtime threat detection
-
-These controls ensure workloads comply with organizational security policies before reaching production.
-
----
-
-### 7. Observability Layer
-
-Platform observability is powered by:
-
-- Prometheus
-- Grafana
-- Alertmanager
-
-Monitoring includes:
-
-- Kubernetes cluster metrics
-- Application metrics
-- Redis exporter metrics
-- PostgreSQL exporter metrics
-- ServiceMonitors
-- Alerting rules
-- Grafana dashboards
-
-This provides comprehensive visibility into platform health, application performance, and infrastructure utilization.
-
----
-
-### 8. Platform Automation Layer
-
-Operational tasks are automated using Python-based services.
-
-Automation includes:
-
-- Daily platform health reports
-
-These automation services reduce manual effort, improve platform reliability, and streamline day-to-day operations.
-
-Architectural principles
-
-- Infrastructure as Code (Terraform)
-- GitOps-driven continuous delivery
-- Immutable infrastructure
-- Declarative Kubernetes configuration
-- Platform self-service
-- Security by default & policy as code
-- Progressive delivery
-- Infrastructure reusability across environments
-- Production-grade observability
-- Automated platform operations
----
-
-## Technology Stack
-
-| Category | Technologies |
-|----------|--------------|
-| **Cloud Platform** | Google Cloud Platform (GCP), Virtual Private Cloud (VPC), Cloud Router, Cloud NAT, Cloud Storage, Cloud SQL (PostgreSQL), Artifact Registry |
-| **Infrastructure as Code** | Terraform |
-| **Container Platform** | Docker, Google Kubernetes Engine (GKE) |
-| **GitOps & Continuous Delivery** | ArgoCD, Argo Rollouts, Kustomize |
-| **CI/CD** | GitHub Actions |
-| **Traffic Management** | Gateway API, NGINX Gateway Fabric |
-| **Security** | Kyverno, Falco, Workload Identity Federation, Kubernetes RBAC, Pod Security Standards (PSS), External Secrets Operator, Cosign, Trivy, SBOM |
-| **Secrets & Certificates** | Vault, External Secrets Operator, Google Secret Manager, Cert-Manager, Let's Encrypt |
-| **Observability** | Prometheus, Grafana, Alertmanager |
-| **Autoscaling** | KEDA, Horizontal Pod Autoscaler (HPA), Cluster Autoscaler |
-| **Cost Management** | Kubecost |
-| **Backup & Disaster Recovery** | Velero |
-| **Configuration Management** | Reloader |
-| **Databases & Messaging** | PostgreSQL (Cloud SQL), Redis |
-| **Programming Languages** | Python, YAML, Bash |
-| **Version Control** | Git, GitHub |
----
-
 ## Key Capabilities
 
 - **Infrastructure as Code (IaC)** – Provision and manage cloud infrastructure using reusable Terraform modules with environment-specific configurations.
