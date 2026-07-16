@@ -1,17 +1,17 @@
-## 🚀 Production-Inspired Cloud-Native Platform on Google Kubernetes Engine (GKE)
+### 🚀 Production-Inspired Cloud-Native Platform on Google Kubernetes Engine (GKE)
 
 A production-inspired Kubernetes platform demonstrating Infrastructure as Code, GitOps, DevSecOps, Progressive Delivery, Observability, Runtime Security, and Automated Platform Operations.
 
 <!-- ![Project Overview](docs/images/Canary-vs-blue-green.gif "Project Demo") -->
 
 ---
-## Solution Architecture
+### Solution Architecture
 
 The following architecture illustrates the complete platform deployment on GCP.
 ![Architecture Diagram](docs/images/platform_solution.png "Platform Architecture")
 
 ---
-##  Platform Highlights
+###  Platform Highlights
 
 <p align="left">
 
