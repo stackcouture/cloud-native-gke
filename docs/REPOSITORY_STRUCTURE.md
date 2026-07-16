@@ -5,6 +5,13 @@ This Platform Engineering Portfolio demonstrates a **production-inspired cloud-n
 Rather than focusing solely on deploying an application, the portfolio showcases how a reusable Kubernetes platform can be designed, provisioned, secured, operated, and maintained using a modular **multi-repository architecture**. Each repository has a well-defined responsibility, enabling independent development, versioning, and lifecycle management while reflecting practices commonly adopted by engineering teams managing production Kubernetes environments.
 
 ---
+## High-Level Architecture
+
+<p align="center">
+  <img src="images/arch.png" width="550" alt="Project Overview">
+</p>
+
+---
 ### Repository Organization
 
 The platform is organized into four repositories:
