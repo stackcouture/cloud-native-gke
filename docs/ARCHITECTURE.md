@@ -17,6 +17,33 @@ The design emphasizes:
 The objective is to provide a repeatable, secure, and maintainable platform suitable for deploying multiple applications in a Kubernetes environment.
 
 ---
+## 📑 Table of Contents
+- [🏛️ Architecture Principles](#architecture-principles)
+  - [🏗️ Infrastructure as Code](#infrastructure-as-code)
+  - [🚀 GitOps](#gitops)
+  - [🔒 Security by Default](#security-by-default)
+  - [🧩 Separation of Responsibilities](#separation-of-responsibilities)
+  - [📊 Observability First](#observability-first)
+- [🏢 Platform Layers](#platform-layers)
+- [🌐 High-Level Architecture](#high-level-architecture)
+- [⚙️ Platform Components](#platform-components)
+  - [☁️ Infrastructure Layer](#infrastructure-layer)
+  - [🛠️ Platform Layer](#platform-layer)
+  - [📦 Application Layer](#application-layer)
+- [🚀 Deployment Architecture](#deployment-architecture)
+- [🌍 Traffic Flow](#traffic-flow)
+- [🔄 Progressive Delivery](#progressive-delivery)
+- [🛡️ Security Architecture](#security-architecture)
+- [🔑 Secrets Management](#secrets-management)
+- [📈 Observability Architecture](#observability-architecture)
+- [🖥️ Workload Isolation](#workload-isolation)
+- [📈 Scalability](#scalability)
+- [🎯 Design Decisions](#design-decisions)
+- [🎯 Architecture Goals](#architecture-goals)
+- [🚧 Future Enhancements](#future-enhancements)
+- [📝 Summary](#summary)
+
+---
 ## Architecture Principles
 
 The platform is designed around the following principles.
