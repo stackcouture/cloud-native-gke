@@ -321,5 +321,75 @@ The repository organization follows clear ownership boundaries:
 
 By assigning a single responsibility to each repository, the platform remains modular, easier to maintain, and aligned with production Platform Engineering practices. Infrastructure provisioning, GitOps configuration, application development, and operational automation can be managed independently while working together through a unified GitOps workflow.
 
+---
+## Repository Relationships
+
+The Platform Engineering Portfolio follows a GitOps-driven software delivery workflow where each repository is responsible for a specific stage of the platform lifecycle. Infrastructure is provisioned using Terraform, application source code is continuously integrated through GitHub Actions, Kubernetes deployments are managed through GitOps with Argo CD, and operational tasks are automated using dedicated platform automation.
+
+The overall workflow is illustrated below.
+
+```text
+                           Developer
+                               │
+                               ▼
+                     voting-app Repository
+                               │
+                  GitHub Actions CI Pipeline
+                               │
+              Build • Test • Scan • Publish
+                               │
+                               ▼
+                Google Artifact Registry
+                               │
+                               ▼
+         gitops-microservices-platform Repository
+                               │
+                   Update Image Tags & Manifests
+                               │
+                               ▼
+                        Argo CD (GitOps)
+                               │
+                    Continuous Synchronization
+                               │
+                               ▼
+                Google Kubernetes Engine (GKE)
+                               ▲
+                               │
+              Provisioned and Managed by Terraform
+                               │
+                               ▼
+                 platform-infra Repository
+      (Infrastructure & Shared Platform Services)
+                               │
+                               ▼
+             platform-automation Repository
+        (Health Checks, Reports & Day-2 Operations)
+```
+
+### Repository Interaction Flow
+
+The repositories work together to deliver applications to the Kubernetes platform while maintaining a clear separation of responsibilities.
+
+1. Developers implement application features in the **voting-app** repository.
+2. GitHub Actions automatically builds, tests, scans, and publishes container images to **Google Artifact Registry**.
+3. The **gitops-microservices-platform** repository stores the desired Kubernetes cluster state, including application manifests, platform resources, and environment-specific Kustomize overlays.
+4. **Argo CD** continuously monitors the GitOps repository and synchronizes changes to the Kubernetes cluster.
+5. The **platform-infra** repository provisions and manages the Google Cloud infrastructure, Kubernetes cluster, and shared platform services using Terraform.
+6. The **platform-automation** repository performs day-2 operational tasks such as health validation, platform reporting, diagnostics, and scheduled maintenance.
+
+### End-to-End Delivery Workflow
+
+The complete delivery process follows these stages:
+
+1. Infrastructure is provisioned using Terraform.
+2. Shared platform services are installed on the Kubernetes cluster.
+3. Applications are developed and committed to the application repository.
+4. GitHub Actions builds, tests, scans, and publishes container images.
+5. GitOps manifests are updated with the new image versions.
+6. Argo CD synchronizes the desired state with the Kubernetes cluster.
+7. Applications are deployed and continuously reconciled.
+8. Platform automation validates platform health and performs operational tasks.
+
+This repository relationship model establishes a clear separation between infrastructure provisioning, continuous integration, GitOps-based continuous delivery, application development, and operational automation. The result is a modular, maintainable, and production-inspired Platform Engineering architecture that supports independent evolution of each repository while ensuring consistent and reliable platform operations.
 
 ---
