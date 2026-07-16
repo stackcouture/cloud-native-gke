@@ -10,7 +10,7 @@ Documenting architectural decisions improves maintainability, provides implement
 
 ---
 <p align="left">
-  <img src="images/architecture_decision.png" width="550" alt="Architectuure Decision">
+  <img src="images/architecture_decision.png" width="750" alt="Architectuure Decision">
 </p>
 
 ---
