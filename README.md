@@ -53,7 +53,7 @@ The following architecture illustrates the complete platform deployment on GCP.
 ---
 ## 📂 Repository Structure
 
-This portfolio is organized into four repositories, each representing a core layer of a production-inspired Platform Engineering ecosystem.
+The Platform Engineering Portfolio follows a multi-repository architecture that separates infrastructure provisioning, GitOps configuration, application source code, and platform automation into independent repositories.
 
 ```text
 Platform Engineering Portfolio
@@ -85,25 +85,17 @@ Platform Engineering Portfolio
     └── scripts/
 ```
 
-| Repository | Description |
-|------------|-------------|
-| **platform-infra** | Terraform modules and environment configurations for provisioning Google Cloud infrastructure and installing core platform components. |
-| **gitops-microservices-platform** | GitOps repository containing Kubernetes manifests, Argo CD ApplicationSets, platform services, security policies, governance, and environment-specific configurations. |
-| **voting-app** | Polyglot microservices application with CI pipelines for building, testing, security scanning, and publishing container images. |
-| **platform-automation** | Python-based platform automation for operational tasks, scheduled jobs, health checks, reporting, and Day-2 platform operations. |
+### Repository Responsibilities
+
+| Repository | Responsibility |
+|------------|----------------|
+| 🏗️ **[platform-infra](https://github.com/stackcouture/platform-infra)** | Provisions Google Cloud infrastructure and shared Kubernetes platform services using reusable Terraform modules, including GKE, networking, IAM, Cloud SQL, Artifact Registry, and platform components. |
+| 🚀 **[gitops-microservices-platform](https://github.com/stackcouture/gitops-microservices-platform)** | Serves as the GitOps source of truth by managing Kubernetes manifests, Kustomize overlays, Argo CD ApplicationSets, platform services, infrastructure workloads, security policies, governance resources, and environment-specific configurations. |
+| 🗳️ **[voting-app](https://github.com/stackcouture/voting-app)** | Contains the Vote, Result, and Worker microservices, Dockerfiles, automated testing, GitHub Actions CI pipelines, container image creation, security scanning, and Artifact Registry publishing. |
+| 🤖 **[platform-automation](https://github.com/stackcouture/platform-automation)** | Provides Python-based automation for day-2 platform operations, including platform health validation, operational reporting, scheduled maintenance, diagnostics, and infrastructure validation. |
 
 ---
-### 📂 Project Repositories
-
-| Repository | Purpose | Link |
-|------------|---------|------|
-| 🏗️ Infrastructure | Terraform modules provisioning the complete GCP platform | https://github.com/stackcouture/platform-infra |
-| 🚀 GitOps | ArgoCD applications, ApplicationSets, Kustomize overlays and platform manifests | https://github.com/stackcouture/gitops-microservices-platform |
-| 🗳️ Voting Application | Vote, Worker and Result microservices with Kubernetes manifests | https://github.com/stackcouture/voting-app |
-| 🤖 Platform Automation | Kubernetes CronJobs, Slack notifications, backup automation and operational scripts | https://github.com/stackcouture/platform-automation |
-
----
-### 📚 Documentation
+## 📚 Documentation
 
 Explore the platform through the following documentation.
 
@@ -365,17 +357,23 @@ Throughout the development of this Platform Engineering Portfolio, I investigate
 These troubleshooting scenarios provided practical experience in identifying root causes, interpreting logs and metrics, validating Kubernetes resources, and implementing reliable solutions across infrastructure, platform services, application deployments, and day-2 operations.
 
 ---
-## Key Takeaways
+## 🎯 Key Takeaways
 
-Through this project, I strengthened my ability to:
+This project demonstrates the ability to design, build, and operate a production-inspired cloud-native platform using modern Platform Engineering practices. Throughout its implementation, the following key capabilities were developed and reinforced:
 
-* Build production-grade cloud infrastructure using Infrastructure as Code.
-* Design and operate Kubernetes platforms following Platform Engineering principles.
-* Implement GitOps-based application delivery using ArgoCD.
-* Build secure CI/CD pipelines with integrated DevSecOps practices.
-* Apply observability, automation, and reliability best practices.
-* Troubleshoot complex cloud-native infrastructure systematically.
-* Integrate infrastructure, Kubernetes, GitOps, CI/CD, security, and observability into a cohesive Platform Engineering platform.
+* Designed and provisioned scalable cloud infrastructure using **Terraform** on **Google Cloud Platform (GCP)**.
+* Built and managed a secure **Google Kubernetes Engine (GKE)** platform with dedicated workloads, networking, and storage.
+* Implemented **GitOps** workflows with **Argo CD** to enable declarative, automated, and auditable Kubernetes deployments.
+* Developed reusable infrastructure and Kubernetes configurations using **Terraform modules** and **Kustomize overlays**.
+* Built secure **CI/CD pipelines** with automated testing, container image creation, security scanning, SBOM generation, and deployment automation.
+* Applied **Platform Engineering** principles by separating infrastructure, platform services, application source code, and operational automation into dedicated repositories.
+* Strengthened platform security through policy enforcement, secret management, runtime security, and identity-based access control.
+* Implemented comprehensive observability, autoscaling, backup, and cost monitoring to improve platform reliability and operational visibility.
+* Gained practical experience troubleshooting infrastructure, Kubernetes, networking, GitOps, and cloud-native operational challenges.
+* Integrated infrastructure provisioning, application delivery, security, observability, and automation into a cohesive, production-inspired Platform Engineering platform.
+
+This portfolio reflects practical, hands-on experience with the technologies, workflows, and operational practices commonly used to build and manage modern Kubernetes-based platforms in production environments.
+
 
 ---
 ## Acknowledgements
