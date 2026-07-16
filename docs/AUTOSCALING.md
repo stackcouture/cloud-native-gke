@@ -17,17 +17,20 @@ Together, these components provide scalable and efficient resource management ac
 ---
 ## 📑 Table of Contents
 
-* 📖 Overview
-* 🎯 Autoscaling Goals
-* 🏗️ Autoscaling Architecture
-* 📊 Horizontal Pod Autoscaler (HPA)
-* ⚡ KEDA Event-Driven Autoscaling
-* ☁️ Cluster Autoscaler
-* 🔄 Autoscaling Workflow
-* 📋 Benefits
-* ⚠️ Challenges Encountered
-* 🎓 Key Learnings
-* 📝 Summary
+- [📖 Overview](#-overview)
+- [🎯 Autoscaling Goals](#-autoscaling-goals)
+- [🏗️ Autoscaling Architecture](#️-autoscaling-architecture)
+- [📊 Horizontal Pod Autoscaler (HPA)](#-horizontal-pod-autoscaler-hpa)
+- [⚡ KEDA Event-Driven Autoscaling](#-keda-event-driven-autoscaling)
+  - [❓ Why Redis Queue Length?](#-why-redis-queue-length)
+- [☁️ Cluster Autoscaler](#️-cluster-autoscaler)
+- [🔄 Autoscaling Workflow](#-autoscaling-workflow)
+- [📋 Benefits](#-benefits)
+- [⚠️ Challenges Encountered](#️-challenges-encountered)
+- [🎓 Key Learnings](#-key-learnings)
+- [📝 Summary](#-summary)
+
+---
 
 ---
 ## 🎯 Autoscaling Goals
