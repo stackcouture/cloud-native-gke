@@ -7,6 +7,28 @@ GitOps is the operational model used throughout this platform to manage Kubernet
 This approach separates **Continuous Integration (CI)** from **Continuous Delivery (CD)**, improves deployment consistency, and provides an auditable, version-controlled deployment process.
 
 ---
+### 📑 Table of Contents
+  - [📖 Overview](#overview)
+  - [🎯 Why GitOps?](#why-gitops)
+  - [⚙️ GitOps Workflow](#gitops-workflow)
+    - [🔨 Continuous Integration](#continuous-integration)
+    - [🚢 Continuous Delivery](#continuous-delivery)
+  - [🏗️ GitOps Architecture Diagram](#gitops-architecture)
+  - [📐 Design Principles](#design-principles)
+    - [📄 Declarative Configuration](#declarative-configuration)
+    - [🔀 Separation of Responsibilities](#separation-of-responsibilities)
+    - [🌍 Environment Management](#environment-management)
+    - [🔄 Automated Reconciliation](#automated-reconciliation)
+  - [🔒 Security](#security)
+    - [📦 Immutable Deployments](#immutable-deployments)
+    - [🛡️ Secure Software Supply Chain](#secure-software-supply-chain)
+    - [🔑 Secret Management](#secret-management)
+    - [⚖️ Policy Enforcement](#policy-enforcement)
+  - [✨ Benefits](#benefits)
+  - [📚 Lessons Learned](#lessons-learned)
+  - [🏁 Conclusion](#conclusion)
+
+---
 ## Why GitOps?
 
 Traditional deployment pipelines often allow CI systems to deploy directly into Kubernetes clusters. While this approach works, it introduces challenges such as configuration drift, limited auditability, and inconsistent environments.
