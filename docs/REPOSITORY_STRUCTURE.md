@@ -393,3 +393,78 @@ The complete delivery process follows these stages:
 This repository relationship model establishes a clear separation between infrastructure provisioning, continuous integration, GitOps-based continuous delivery, application development, and operational automation. The result is a modular, maintainable, and production-inspired Platform Engineering architecture that supports independent evolution of each repository while ensuring consistent and reliable platform operations.
 
 ---
+## Layer Responsibilities
+
+The platform is organized into logical layers, with each layer responsible for a specific aspect of the cloud-native platform. This layered architecture separates infrastructure provisioning, shared platform capabilities, and application workloads, resulting in a modular, scalable, and maintainable Platform Engineering implementation.
+
+| Layer              | Purpose                                                                                                                                                      | Core Components                                                                                                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Infrastructure** | Establishes the cloud foundation by provisioning networking, compute, storage, identity, and managed cloud services required to run the Kubernetes platform. | Terraform, Google Cloud Platform (GCP), VPC, GKE, Cloud SQL, Artifact Registry, Cloud Storage, IAM, Workload Identity Federation                                                                         |
+| **Platform**       | Provides shared Kubernetes services that enable secure, reliable, observable, and scalable application delivery across the cluster.                          | Argo CD, Argo Rollouts, Gateway API, NGINX Gateway Fabric, cert-manager, External Secrets Operator, HashiCorp Vault, Kyverno, Falco, Prometheus, Grafana, Alertmanager, KEDA, Kubecost, Velero, Reloader |
+| **Application**    | Hosts the cloud-native business workloads and supporting data services that run on the Kubernetes platform.                                                  | Vote Service, Result Service, Worker Service, PostgreSQL, Redis                                                                                                                                          |
+---
+### Infrastructure Layer
+
+The Infrastructure layer provides the foundational cloud resources required to operate the platform. It is provisioned using reusable Terraform modules and environment-specific configurations, ensuring consistent and repeatable infrastructure deployments.
+
+**Responsibilities include:**
+
+* Provisioning Google Cloud infrastructure
+* Creating Virtual Private Cloud (VPC) networking
+* Managing Google Kubernetes Engine (GKE) clusters and node pools
+* Provisioning Cloud SQL databases
+* Creating Artifact Registry repositories
+* Managing Cloud Storage resources
+* Configuring IAM roles and permissions
+* Implementing Workload Identity Federation
+* Managing reusable Terraform modules
+
+---
+### Platform Layer
+
+The Platform layer delivers shared Kubernetes capabilities that support secure application deployment, GitOps workflows, observability, policy enforcement, autoscaling, traffic management, and operational resilience.
+
+**Responsibilities include:**
+
+* GitOps continuous delivery with Argo CD
+* Progressive delivery using Argo Rollouts
+* Kubernetes traffic management with Gateway API and NGINX Gateway Fabric
+* Secret management using External Secrets Operator and HashiCorp Vault
+* Policy enforcement using Kyverno
+* Runtime security monitoring using Falco
+* Monitoring and alerting with Prometheus, Grafana, and Alertmanager
+* Event-driven autoscaling with KEDA
+* Automated TLS certificate management with cert-manager
+* Backup and disaster recovery with Velero
+* Cost monitoring with Kubecost
+* Automatic workload reloads using Reloader
+
+---
+### Application Layer
+
+The Application layer hosts the business services deployed on the platform. These services demonstrate how cloud-native workloads are built, containerized, continuously integrated, and delivered through GitOps.
+
+**Responsibilities include:**
+
+* Hosting the Vote, Result, and Worker microservices
+* Managing PostgreSQL and Redis workloads
+* Building container images through GitHub Actions
+* Running automated tests and security scans
+* Publishing container images to Artifact Registry
+* Deploying applications through Argo CD
+* Supporting environment-specific configuration using Kustomize overlays
+
+---
+### Layered Architecture Benefits
+This layered architecture provides several advantages:
+
+* Clear separation of infrastructure, platform, and application responsibilities
+* Independent lifecycle management for each layer
+* Improved maintainability and scalability
+* Reusable infrastructure and platform components
+* Consistent GitOps-based deployments
+* Enhanced security through centralized platform services
+* Simplified operations using shared observability and automation
+* Alignment with production Platform Engineering practices
+
+---
