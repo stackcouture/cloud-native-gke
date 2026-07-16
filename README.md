@@ -2,10 +2,8 @@
 
 A production-inspired Kubernetes platform demonstrating Infrastructure as Code, GitOps, DevSecOps, Progressive Delivery, Observability, Runtime Security, and Automated Platform Operations.
 
-<!-- ![Project Overview](docs/images/Canary-vs-blue-green.gif "Project Demo") -->
-
 ---
-## 📖 Project Overview
+## Project Overview
 
 This repository demonstrates how a modern cloud-native platform can be built
 using production-inspired platform engineering practices on Google Kubernetes
@@ -22,34 +20,34 @@ the end-to-end lifecycle of designing, deploying, securing, observing, and
 operating a Kubernetes platform.
 
 ---
-## 📑 Table of Contents
+## Table of Contents
 
-- [📖 Project Overview](#-project-overview)
-- [🏗️ Solution Architecture](#️-solution-architecture)
-- [🛠️ Technology Stack](#️-technology-stack)
-- [📂 Repository Structure](#-repository-structure)
-- [📚 Documentation](#-documentation)
-- [🚀 Platform Capabilities](#-platform-capabilities)
-- [✨ Platform Features](#-platform-features)
-- [📸 Demo Screenshots](#-demo-screenshots)
-  - [🏗️ Platform Architecture](#️-platform-architecture)
-  - [🚀 GitOps with Argo CD](#-gitops-with-argo-cd)
-  - [🚀 Argo Rollouts Strategy](#-argo-rollouts-strategy)
-  - [📊 Observability](#-observability)
-- [📊 Project at a Glance](#-project-at-a-glance)
-- [🎓 Learning Outcomes](#-learning-outcomes)
-- [🔧 Troubleshooting Experience](#-troubleshooting-experience)
-- [🎯 Key Takeaways](#-key-takeaways)
-- [🙏 Acknowledgements](#acknowledgements)
+- [Project Overview](#-project-overview)
+- [Solution Architecture](#️-solution-architecture)
+- [Technology Stack](#️-technology-stack)
+- [Repository Structure](#-repository-structure)
+- [Documentation](#-documentation)
+- [Platform Capabilities](#-platform-capabilities)
+- [Platform Features](#-platform-features)
+- [Demo Screenshots](#-demo-screenshots)
+  - [Platform Architecture](#️-platform-architecture)
+  - [GitOps with Argo CD](#-gitops-with-argo-cd)
+  - [Argo Rollouts Strategy](#-argo-rollouts-strategy)
+  - [Observability](#-observability)
+- [Project at a Glance](#-project-at-a-glance)
+- [Learning Outcomes](#-learning-outcomes)
+- [Troubleshooting Experience](#-troubleshooting-experience)
+- [Key Takeaways](#-key-takeaways)
+- [Acknowledgements](#acknowledgements)
 
 ---
-## 🏗️ Solution Architecture
+## Solution Architecture
 
 The following architecture illustrates the complete platform deployment on GCP.
 ![Architecture Diagram](docs/images/platform_solution.png "Platform Architecture")
 
 ---
-## 🛠️ Technology Stack
+## Technology Stack
 
 <p align="left">
 
@@ -87,7 +85,7 @@ The following architecture illustrates the complete platform deployment on GCP.
 | 💾 Backup & Recovery | Velero |
 
 ---
-## 📂 Repository Structure
+## Repository Structure
 
 The Platform Engineering Portfolio follows a multi-repository architecture that separates infrastructure provisioning, GitOps configuration, application source code, and platform automation into independent repositories.
 
@@ -125,80 +123,80 @@ Platform Engineering Portfolio
 
 | Repository | Responsibility |
 |------------|----------------|
-| 🏗️ **[platform-infra](https://github.com/stackcouture/platform-infra)** | Provisions Google Cloud infrastructure and shared Kubernetes platform services using reusable Terraform modules, including GKE, networking, IAM, Cloud SQL, Artifact Registry, and platform components. |
-| 🚀 **[gitops-microservices-platform](https://github.com/stackcouture/gitops-microservices-platform)** | Serves as the GitOps source of truth by managing Kubernetes manifests, Kustomize overlays, Argo CD ApplicationSets, platform services, infrastructure workloads, security policies, governance resources, and environment-specific configurations. |
-| 🗳️ **[voting-app](https://github.com/stackcouture/voting-app)** | Contains the Vote, Result, and Worker microservices, Dockerfiles, automated testing, GitHub Actions CI pipelines, container image creation, security scanning, and Artifact Registry publishing. |
-| 🤖 **[platform-automation](https://github.com/stackcouture/platform-automation)** | Provides Python-based automation for day-2 platform operations, including platform health validation, operational reporting, scheduled maintenance, diagnostics, and infrastructure validation. |
+| **[platform-infra](https://github.com/stackcouture/platform-infra)** | Provisions Google Cloud infrastructure and shared Kubernetes platform services using reusable Terraform modules, including GKE, networking, IAM, Cloud SQL, Artifact Registry, and platform components. |
+| **[gitops-microservices-platform](https://github.com/stackcouture/gitops-microservices-platform)** | Serves as the GitOps source of truth by managing Kubernetes manifests, Kustomize overlays, Argo CD ApplicationSets, platform services, infrastructure workloads, security policies, governance resources, and environment-specific configurations. |
+| **[voting-app](https://github.com/stackcouture/voting-app)** | Contains the Vote, Result, and Worker microservices, Dockerfiles, automated testing, GitHub Actions CI pipelines, container image creation, security scanning, and Artifact Registry publishing. |
+| **[platform-automation](https://github.com/stackcouture/platform-automation)** | Provides Python-based automation for day-2 platform operations, including platform health validation, operational reporting, scheduled maintenance, diagnostics, and infrastructure validation. |
 
 ---
-## 📚 Documentation
+## Documentation
 
 Explore the platform through the following documentation.
 
 | Document                                                   | Description                                                                                                                           |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 📘 [PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)         | Complete overview of the platform, goals, repository organization, and key capabilities.                                              |
-| 📂 [REPOSITORY_STRUCTURE.md](docs/REPOSITORY_STRUCTURE.md) | Multi-repository architecture, repository organization, responsibilities, relationships, layered architecture, and design principles. |
-| 🏗️ [ARCHITECTURE.md](docs/ARCHITECTURE.md)                | Platform architecture, design principles, and component interactions.                                                                 |
-| ☸️ [KUBERNETES.md](docs/KUBERNETES.md)                     | Kubernetes cluster design, namespaces, workloads, scheduling, storage, and platform services.                                         |
-| ☁️ [INFRASTRUCTURE.md](docs/INFRASTRUCTURE.md)             | Terraform modules, environment layout, GKE provisioning, networking, IAM, and cloud resources.                                        |
-| 🚀 [GITOPS.md](docs/GITOPS.md)                             | GitOps workflow, Argo CD, ApplicationSets, Kustomize, and deployment strategy.                                                        |
-| ⚙️ [CICD.md](docs/CICD.md)                                 | GitHub Actions workflows, container builds, security scanning, SBOM generation, image signing, and deployment automation.             |
-| 🔒 [SECURITY.md](docs/SECURITY.md)                         | Platform security, Kyverno policies, Falco runtime security, External Secrets, RBAC, and certificate management.                      |
-| 🌐 [NETWORKING.md](docs/NETWORKING.md)                     | Gateway API, ingress, TLS automation, DNS, and traffic management.                                                                    |
-| 📊 [OBSERVABILITY.md](docs/OBSERVABILITY.md)               | Monitoring, logging, metrics, dashboards, alerting, and operational visibility.                                                       |
-| 📈 [AUTOSCALING.md](docs/AUTOSCALING.md)                   | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler, and scaling strategies.                                                    |
-| 🏛️ [DECISIONS.md](docs/DECISIONS.md)                      | Architecture Decision Records (ADRs), design trade-offs, and technology choices.                                                      |
+| [PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)         | Complete overview of the platform, goals, repository organization, and key capabilities.                                              |
+| [REPOSITORY_STRUCTURE.md](docs/REPOSITORY_STRUCTURE.md) | Multi-repository architecture, repository organization, responsibilities, relationships, layered architecture, and design principles. |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md)                | Platform architecture, design principles, and component interactions.                                                                 |
+| [KUBERNETES.md](docs/KUBERNETES.md)                     | Kubernetes cluster design, namespaces, workloads, scheduling, storage, and platform services.                                         |
+| [INFRASTRUCTURE.md](docs/INFRASTRUCTURE.md)             | Terraform modules, environment layout, GKE provisioning, networking, IAM, and cloud resources.                                        |
+| [GITOPS.md](docs/GITOPS.md)                             | GitOps workflow, Argo CD, ApplicationSets, Kustomize, and deployment strategy.                                                        |
+| [CICD.md](docs/CICD.md)                                 | GitHub Actions workflows, container builds, security scanning, SBOM generation, image signing, and deployment automation.             |
+| [SECURITY.md](docs/SECURITY.md)                         | Platform security, Kyverno policies, Falco runtime security, External Secrets, RBAC, and certificate management.                      |
+| [NETWORKING.md](docs/NETWORKING.md)                     | Gateway API, ingress, TLS automation, DNS, and traffic management.                                                                    |
+| [OBSERVABILITY.md](docs/OBSERVABILITY.md)               | Monitoring, logging, metrics, dashboards, alerting, and operational visibility.                                                       |
+| [AUTOSCALING.md](docs/AUTOSCALING.md)                   | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler, and scaling strategies.                                                    |
+| [DECISIONS.md](docs/DECISIONS.md)                      | Architecture Decision Records (ADRs), design trade-offs, and technology choices.                                                      |
 
 
 ---
-## 🚀 Platform Capabilities
+## Platform Capabilities
 
 | Area | Technologies |
 |------|--------------|
-| ☁️ Infrastructure | Terraform, Google Cloud Platform (GCP) |
-| ☸️ Kubernetes | Google Kubernetes Engine (GKE), Kubernetes |
-| 🔄 GitOps | Argo CD, ApplicationSets, Kustomize |
-| ⚙️ Continuous Integration | GitHub Actions |
-| 🚀 Progressive Delivery | Argo Rollouts |
-| 🔒 Security | Kyverno, Falco, RBAC |
-| 🔑 Secrets Management | External Secrets Operator, Google Secret Manager, Vault |
-| 🌐 Networking | Gateway API, NGINX Gateway Fabric, cert-manager |
-| 📊 Observability | Prometheus, Grafana, Alertmanager |
-| 📈 Autoscaling | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler |
-| 💾 Data Platform | PostgreSQL, Redis |
-| 💰 Cost Optimization | Kubecost |
-| 🤖 Platform Automation | Python Automation, Kubernetes CronJobs |
+| Infrastructure | Terraform, Google Cloud Platform (GCP) |
+| Kubernetes | Google Kubernetes Engine (GKE), Kubernetes |
+| GitOps | Argo CD, ApplicationSets, Kustomize |
+| Continuous Integration | GitHub Actions |
+| Progressive Delivery | Argo Rollouts |
+| Security | Kyverno, Falco, RBAC |
+| Secrets Management | External Secrets Operator, Google Secret Manager, Vault |
+| Networking | Gateway API, NGINX Gateway Fabric, cert-manager |
+| Observability | Prometheus, Grafana, Alertmanager |
+| Autoscaling | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler |
+| Data Platform | PostgreSQL, Redis |
+| Cost Optimization | Kubecost |
+| Platform Automation | Python Automation, Kubernetes CronJobs |
 
 ---
-## ✨ Platform Features
+## Platform Features
 
 | Feature | Description |
 |---------|-------------|
-| 🚀 Infrastructure as Code | Provisions Google Cloud infrastructure using reusable Terraform modules |
-| ☸️ Private GKE Cluster | Deploys workloads on a private Google Kubernetes Engine cluster |
-| 🔄 GitOps Deployment | Uses Argo CD to continuously synchronize Kubernetes resources from Git |
-| ⚙️ CI Pipeline | Automates build, test, vulnerability scanning, image signing, and image publishing with GitHub Actions |
-| 📦 Multi-Environment Support | Manages development and production environments using Kustomize overlays |
-| 🔐 Workload Identity | Provides secure authentication between Kubernetes workloads and Google Cloud services |
-| 🔑 External Secret Management | Synchronizes secrets from Google Secret Manager and HashiCorp Vault using External Secrets Operator |
-| 🛡️ Policy Enforcement | Enforces Kubernetes security policies using Kyverno |
-| 🦅 Runtime Threat Detection | Detects suspicious runtime activity using Falco |
-| 📈 Progressive Delivery | Supports Canary and Blue-Green deployments with Argo Rollouts |
-| 🌐 Modern Networking | Uses Gateway API and NGINX Gateway Fabric for HTTP routing and traffic management |
-| 🔒 Automatic TLS | Provisions and renews TLS certificates automatically using cert-manager and Let's Encrypt |
-| 📊 Centralized Observability | Monitors applications and infrastructure with Prometheus, Grafana, and Alertmanager |
-| 📉 Event-Driven Autoscaling | Scales worker pods dynamically using KEDA based on Redis queue length |
-| 📈 Horizontal Autoscaling | Scales application pods automatically using Horizontal Pod Autoscaler (HPA) |
-| ☁️ Cluster Autoscaling | Automatically adjusts GKE node capacity based on workload demand |
-| 💰 Cost Monitoring | Tracks Kubernetes resource utilization and costs with Kubecost |
-| 🗄️ Database Monitoring | Monitors PostgreSQL and Redis using Prometheus exporters |
-| 📚 Architecture Documentation | Includes comprehensive documentation covering architecture, infrastructure, GitOps, networking, security, observability, autoscaling, and architectural decisions |
+| Infrastructure as Code | Provisions Google Cloud infrastructure using reusable Terraform modules |
+| Private GKE Cluster | Deploys workloads on a private Google Kubernetes Engine cluster |
+| GitOps Deployment | Uses Argo CD to continuously synchronize Kubernetes resources from Git |
+| CI Pipeline | Automates build, test, vulnerability scanning, image signing, and image publishing with GitHub Actions |
+| Multi-Environment Support | Manages development and production environments using Kustomize overlays |
+| Workload Identity | Provides secure authentication between Kubernetes workloads and Google Cloud services |
+| External Secret Management | Synchronizes secrets from Google Secret Manager and HashiCorp Vault using External Secrets Operator |
+| Policy Enforcement | Enforces Kubernetes security policies using Kyverno |
+| Runtime Threat Detection | Detects suspicious runtime activity using Falco |
+| Progressive Delivery | Supports Canary and Blue-Green deployments with Argo Rollouts |
+| Modern Networking | Uses Gateway API and NGINX Gateway Fabric for HTTP routing and traffic management |
+| Automatic TLS | Provisions and renews TLS certificates automatically using cert-manager and Let's Encrypt |
+| Centralized Observability | Monitors applications and infrastructure with Prometheus, Grafana, and Alertmanager |
+| Event-Driven Autoscaling | Scales worker pods dynamically using KEDA based on Redis queue length |
+| Horizontal Autoscaling | Scales application pods automatically using Horizontal Pod Autoscaler (HPA) |
+| Cluster Autoscaling | Automatically adjusts GKE node capacity based on workload demand |
+| Cost Monitoring | Tracks Kubernetes resource utilization and costs with Kubecost |
+| Database Monitoring | Monitors PostgreSQL and Redis using Prometheus exporters |
+| Architecture Documentation | Includes comprehensive documentation covering architecture, infrastructure, GitOps, networking, security, observability, autoscaling, and architectural decisions |
 
 ---
-## 📸 Demo Screenshots
+## Demo Screenshots
 
-### 🏗️ Platform Architecture
+### Platform Architecture
 
 <p align="left">
   <img src="assets/screenshots/architecture.png" width="550" alt="Architecture">
@@ -210,7 +208,7 @@ Explore the platform through the following documentation.
 </p>
 
 
-### 🚀 GitOps with Argo CD
+### GitOps with Argo CD
 <b> ArgoCD Output</b>
 <p align="left">
   <img src="assets/screenshots/argocd-output.png" width="650" alt="ArgoCD Output">
@@ -230,7 +228,7 @@ Explore the platform through the following documentation.
 </p>
 
 ---
-### 🚀 Argo Rollouts Strategy
+### Argo Rollouts Strategy
 <b>Blue-Green Deployment</b>
 <p align="left">
   <img src="assets/screenshots/blue-green-deployment.gif" width="650" alt="Blue-Green Deployment">
@@ -241,7 +239,7 @@ Explore the platform through the following documentation.
 </p>
 
 ---
-### 📊 Observability
+### Observability
 <b>Appplication SLO Voting</b>
 <p align="left">
   <img src="assets/screenshots/grafana/appplication-slo-voting-1.png" width="650" alt="Appplication SLO Voting">
@@ -256,39 +254,39 @@ Explore the platform through the following documentation.
 </p>
 
 ---
-## 📊 Project at a Glance
+## Project at a Glance
 
 ### Platform Overview
 
 | Category                        | Details                                 |
 | ------------------------------- | --------------------------------------- |
-| ☁️ **Cloud Platform**           | Google Cloud Platform (GCP)             |
-| ☸️ **Container Platform**       | Google Kubernetes Engine (GKE)          |
-| 🏗️ **Infrastructure**          | Terraform                               |
-| 🚀 **Continuous Delivery**      | GitOps with Argo CD                     |
-| ⚙️ **Continuous Integration**   | GitHub Actions                          |
-| 📦 **Application Architecture** | Polyglot Microservices                  |
-| 🌐 **Networking**               | Gateway API & NGINX Gateway Fabric      |
-| 🔐 **Security**                 | Kyverno, Falco, External Secrets, Vault |
-| 📊 **Observability**            | Prometheus, Grafana, Alertmanager       |
-| 📈 **Autoscaling**              | HPA & KEDA                              |
-| 💰 **Cost Management**          | Kubecost                                |
-| 💾 **Backup & Recovery**        | Velero                                  |
+| **Cloud Platform**              | Google Cloud Platform (GCP)             |
+| **Container Platform**          | Google Kubernetes Engine (GKE)          |
+| **Infrastructure**              | Terraform                               |
+| **Continuous Delivery**         | GitOps with Argo CD                     |
+| **Continuous Integration**      | GitHub Actions                          |
+| **Application Architecture**    | Polyglot Microservices                  |
+| **Networking**                  | Gateway API & NGINX Gateway Fabric      |
+| **Security**                    | Kyverno, Falco, External Secrets, Vault |
+| **Observability**               | Prometheus, Grafana, Alertmanager       |
+| **Autoscaling**                 | HPA & KEDA                              |
+| **Cost Management**             | Kubecost                                |
+| **Backup & Recovery**           | Velero                                  |
 
 ---
 
 ### Portfolio Metrics
 
-| Metric                          |                             Value |
-| ------------------------------- | --------------------------------: |
-| 📁 Repositories                 |                             **4** |
-| 🏗️ Infrastructure Modules      |                           **20+** |
-| ☸️ Kubernetes Platform Services |                            **15** |
-| 🐳 Microservices                |                             **3** |
-| 🌍 Deployment Environments      |                             **2** |
-| 🔄 GitOps Repositories          |                             **1** |
-| ⚙️ CI Pipelines                 |                **GitHub Actions** |
-| 🚀 Deployment Strategy          | **GitOps + Progressive Delivery** |
+| Metric                       |                             Value |
+| ---------------------------- | --------------------------------: |
+| Repositories                 |                             **4** |
+| Infrastructure Modules       |                           **20+** |
+| Kubernetes Platform Services |                            **15** |
+| Microservices                |                             **3** |
+| Deployment Environments      |                             **2** |
+| GitOps Repositories          |                             **1** |
+| CI Pipelines                 |                **GitHub Actions** |
+| Deployment Strategy          | **GitOps + Progressive Delivery** |
 
 ---
 
@@ -325,7 +323,7 @@ Explore the platform through the following documentation.
 
 
 ---
-## 🎓 Learning Outcomes
+## Learning Outcomes
 
 Building this Platform Engineering Portfolio provided hands-on experience across the complete cloud-native application lifecycle, from infrastructure provisioning to day-2 platform operations. The project demonstrates practical knowledge in the following areas:
 
@@ -348,7 +346,7 @@ Building this Platform Engineering Portfolio provided hands-on experience across
 These learning outcomes reflect practical, hands-on experience in designing and operating a cloud-native platform using Infrastructure as Code, GitOps, Kubernetes, CI/CD automation, security, observability, and operational best practices.
 
 ---
-## 🔧 Troubleshooting Experience
+## Troubleshooting Experience
 
 Throughout the development of this Platform Engineering Portfolio, I investigated, diagnosed, and resolved a variety of real-world infrastructure, Kubernetes, GitOps, and cloud-native operational challenges. These experiences strengthened my understanding of production troubleshooting and platform operations.
 
@@ -398,7 +396,7 @@ Throughout the development of this Platform Engineering Portfolio, I investigate
 These troubleshooting scenarios provided practical experience in identifying root causes, interpreting logs and metrics, validating Kubernetes resources, and implementing reliable solutions across infrastructure, platform services, application deployments, and day-2 operations.
 
 ---
-## 🎯 Key Takeaways
+## Key Takeaways
 
 This project demonstrates the ability to design, build, and operate a production-inspired cloud-native platform using modern Platform Engineering practices. Throughout its implementation, the following key capabilities were developed and reinforced:
 
