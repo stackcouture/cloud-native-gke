@@ -177,6 +177,21 @@ Explore the platform through the following documentation.
 </p>
 
 ---
+### 🚀 GitOps with Argo CD
+<div>
+<p>
+  <img src="assets/screenshots/vote-argocd.png" width="350" alt="Vote ArgoCD">
+</p>
+<p>
+  <img src="assets/screenshots/worker-argocd.png" width="350" alt="Worker ArgoCD">
+</p>
+<p>
+  <img src="assets/screenshots/result-argocd.png" width="350" alt="Result ArgoCD">
+</p>
+</div>
+
+
+---
 ## Learning Outcomes
 
 Over the past months, I designed, deployed, troubleshot, and operated a production-style Platform Engineering environment on **Google Cloud Platform (GCP)**. This project provided hands-on experience across the complete software delivery lifecycle—from infrastructure provisioning to Kubernetes operations, GitOps, security, observability, and automation.
