@@ -182,11 +182,14 @@ Explore the platform through the following documentation.
 <p align="left">
   <img src="assets/screenshots/argocd-output.png" width="650" alt="ArgoCD Output">
 </p>
-
-<p align="center">
-  <img src="assets/screenshots/vote-argocd.png" width="300" alt="Vote ArgoCD">
-  <img src="assets/screenshots/worker-argocd.png" width="300" alt="Worker ArgoCD">
-  <img src="assets/screenshots/result-argocd.png" width="300" alt="Result ArgoCD">
+<p align="left">
+  <img src="assets/screenshots/vote-argocd.png" width="650" alt="Vote ArgoCD">
+</p>
+<p align="left">
+  <img src="assets/screenshots/worker-argocd.png" width="650" alt="Worker ArgoCD">
+</p>
+<p align="left">
+  <img src="assets/screenshots/result-argocd.png" width="650" alt="Result ArgoCD">
 </p>
 
 
