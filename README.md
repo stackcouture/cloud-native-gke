@@ -178,13 +178,12 @@ Explore the platform through the following documentation.
 
 ---
 ### 🚀 GitOps with Argo CD
+
+<p align="left">
+  <img src="assets/screenshots/argocd-output.png" width="650" alt="ArgoCD Output">
+</p>
+
 <table>
-  <tr>
-    <td align="center">
-      <img src="assets/screenshots/argocd-output.png" width="650" alt="Architecture"> </br>
-      <b>ArgoCD Output</b>
-    </td>
-  </tr>
   <tr>
     <td align="center">
       <img src="assets/screenshots/vote-argocd.png" width="400"><br>
