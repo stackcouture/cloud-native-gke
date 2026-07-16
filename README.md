@@ -51,39 +51,6 @@ The following architecture illustrates the complete platform deployment on GCP.
 </p>
 
 ---
-## 📑 Table of Contents
-
-- [🏗️ Solution Architecture](#solution-architecture)
-- [🏛️ Platform Layers](#platform-layers)
-  - [🏗️ Infrastructure Layer](#1-infrastructure-layer)
-  - [⚙️ Platform Layer](#2-platform-layer)
-  - [🔄 GitOps Layer](#3-gitops-layer)
-  - [🗳️ Application Layer](#4-application-layer)
-  - [🚀 CI/CD Layer](#5-cicd-layer)
-  - [🛡️ Security Layer](#6-security-layer)
-  - [📊 Observability Layer](#7-observability-layer)
-  - [🤖 Platform Automation Layer](#8-platform-automation-layer)
-- [🛠️ Technology Stack](#technology-stack)
-- [⭐ Key Capabilities](#key-capabilities)
-- [📂 Repository Structure](#repository-structure)
-- [📖 Repository Overview](#repository-overview)
-- [📌 Layer Responsibilities](#layer-responsibilities)
-- [🔗 How It Fits Together](#how-it-fits-together)
-- [🚀 Infrastructure Provisioning](#infrastructure-provisioning)
-- [🚀 CI/CD Pipeline](#cicd-pipeline)
-- [🔄 GitOps Workflow](#gitops-workflow)
-- [🛡️ Security & Compliance](#security--compliance)
-- [📈 Observability & Monitoring](#observability--monitoring)
-- [🚦 Progressive Delivery](#progressive-delivery)
-- [💾 Disaster Recovery](#disaster-recovery)
-- [💰 Cost Optimization](#cost-optimization)
-- [🤖 Platform Automation](#platform-automation)
-- [🎥 Project Walkthrough](#project-walkthrough)
-- [🔮 Future Enhancements](#future-enhancements)
-- [📚 Learning Outcomes](#learning-outcomes)
-- [🙏 Acknowledgements](#acknowledgements)
-
----
 ## 📂 Repository Structure
 
 This portfolio is organized into four repositories, each representing a core layer of a production-inspired Platform Engineering ecosystem.
@@ -172,6 +139,31 @@ Explore the platform through the following documentation.
 | 💾 Data Platform | PostgreSQL, Redis |
 | 💰 Cost Optimization | Kubecost |
 | 🤖 Platform Automation | Python Automation, Kubernetes CronJobs |
+
+---
+## ✨ Platform Features
+
+| Feature | Description |
+|---------|-------------|
+| 🚀 Infrastructure as Code | Provisions Google Cloud infrastructure using reusable Terraform modules |
+| ☸️ Private GKE Cluster | Deploys workloads on a private Google Kubernetes Engine cluster |
+| 🔄 GitOps Deployment | Uses Argo CD to continuously synchronize Kubernetes resources from Git |
+| ⚙️ CI Pipeline | Automates build, test, vulnerability scanning, image signing, and image publishing with GitHub Actions |
+| 📦 Multi-Environment Support | Manages development and production environments using Kustomize overlays |
+| 🔐 Workload Identity | Provides secure authentication between Kubernetes workloads and Google Cloud services |
+| 🔑 External Secret Management | Synchronizes secrets from Google Secret Manager and HashiCorp Vault using External Secrets Operator |
+| 🛡️ Policy Enforcement | Enforces Kubernetes security policies using Kyverno |
+| 🦅 Runtime Threat Detection | Detects suspicious runtime activity using Falco |
+| 📈 Progressive Delivery | Supports Canary and Blue-Green deployments with Argo Rollouts |
+| 🌐 Modern Networking | Uses Gateway API and NGINX Gateway Fabric for HTTP routing and traffic management |
+| 🔒 Automatic TLS | Provisions and renews TLS certificates automatically using cert-manager and Let's Encrypt |
+| 📊 Centralized Observability | Monitors applications and infrastructure with Prometheus, Grafana, and Alertmanager |
+| 📉 Event-Driven Autoscaling | Scales worker pods dynamically using KEDA based on Redis queue length |
+| 📈 Horizontal Autoscaling | Scales application pods automatically using Horizontal Pod Autoscaler (HPA) |
+| ☁️ Cluster Autoscaling | Automatically adjusts GKE node capacity based on workload demand |
+| 💰 Cost Monitoring | Tracks Kubernetes resource utilization and costs with Kubecost |
+| 🗄️ Database Monitoring | Monitors PostgreSQL and Redis using Prometheus exporters |
+| 📚 Architecture Documentation | Includes comprehensive documentation covering architecture, infrastructure, GitOps, networking, security, observability, autoscaling, and architectural decisions |
 
 ---
 ## Key Capabilities
