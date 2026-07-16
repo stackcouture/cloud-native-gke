@@ -25,7 +25,7 @@ operating a Kubernetes platform.
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Technology Stack](#️technology-stack)
-- [Repository Structure](#-repository-structure)
+- [Repository Structure](#repository-structure)
 - [Documentation](#-documentation)
 - [Platform Capabilities](#-platform-capabilities)
 - [Platform Features](#-platform-features)
