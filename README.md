@@ -223,12 +223,98 @@ Explore the platform through the following documentation.
 </p>
 
 ---
-## Learning Outcomes
+## 📊 Project at a Glance
 
-Over the past months, I designed, deployed, troubleshot, and operated a production-style Platform Engineering environment on **Google Cloud Platform (GCP)**. This project provided hands-on experience across the complete software delivery lifecycle—from infrastructure provisioning to Kubernetes operations, GitOps, security, observability, and automation.
+### Platform Overview
+
+| Category                        | Details                                 |
+| ------------------------------- | --------------------------------------- |
+| ☁️ **Cloud Platform**           | Google Cloud Platform (GCP)             |
+| ☸️ **Container Platform**       | Google Kubernetes Engine (GKE)          |
+| 🏗️ **Infrastructure**          | Terraform                               |
+| 🚀 **Continuous Delivery**      | GitOps with Argo CD                     |
+| ⚙️ **Continuous Integration**   | GitHub Actions                          |
+| 📦 **Application Architecture** | Polyglot Microservices                  |
+| 🌐 **Networking**               | Gateway API & NGINX Gateway Fabric      |
+| 🔐 **Security**                 | Kyverno, Falco, External Secrets, Vault |
+| 📊 **Observability**            | Prometheus, Grafana, Alertmanager       |
+| 📈 **Autoscaling**              | HPA & KEDA                              |
+| 💰 **Cost Management**          | Kubecost                                |
+| 💾 **Backup & Recovery**        | Velero                                  |
 
 ---
 
+### Portfolio Metrics
+
+| Metric                          |                             Value |
+| ------------------------------- | --------------------------------: |
+| 📁 Repositories                 |                             **4** |
+| 🏗️ Infrastructure Modules      |                           **20+** |
+| ☸️ Kubernetes Platform Services |                            **15** |
+| 🐳 Microservices                |                             **3** |
+| 🌍 Deployment Environments      |                             **2** |
+| 🔄 GitOps Repositories          |                             **1** |
+| ⚙️ CI Pipelines                 |                **GitHub Actions** |
+| 🚀 Deployment Strategy          | **GitOps + Progressive Delivery** |
+
+---
+
+### Platform Features
+
+| Area                   | Technologies                        |
+| ---------------------- | ----------------------------------- |
+| Infrastructure as Code | ✅ Terraform                         |
+| Kubernetes Platform    | ✅ Google Kubernetes Engine          |
+| GitOps                 | ✅ Argo CD                           |
+| Progressive Delivery   | ✅ Argo Rollouts                     |
+| Security               | ✅ Kyverno, Falco                    |
+| Secret Management      | ✅ External Secrets, Vault           |
+| Networking             | ✅ Gateway API, NGINX Gateway Fabric |
+| Observability          | ✅ Prometheus, Grafana, Alertmanager |
+| Autoscaling            | ✅ HPA, KEDA                         |
+| Cost Monitoring        | ✅ Kubecost                          |
+| Backup & Recovery      | ✅ Velero                            |
+| CI/CD                  | ✅ GitHub Actions                    |
+
+---
+
+### Engineering Focus
+
+* ✅ Production-inspired Platform Engineering
+* ✅ Modular multi-repository architecture
+* ✅ Infrastructure as Code (Terraform)
+* ✅ GitOps-driven Kubernetes deployments
+* ✅ Kubernetes security and policy enforcement
+* ✅ Progressive application delivery
+* ✅ Automated CI/CD pipelines
+* ✅ Platform observability and alerting
+* ✅ Day-2 platform automation
+
+
+---
+## 🎓 Learning Outcomes
+
+Building this Platform Engineering Portfolio provided hands-on experience across the complete cloud-native application lifecycle, from infrastructure provisioning to day-2 platform operations. The project demonstrates practical knowledge in the following areas:
+
+* Designed and provisioned production-inspired cloud infrastructure using **Terraform** on **Google Cloud Platform (GCP)**.
+* Built and managed a **Google Kubernetes Engine (GKE)** cluster with dedicated node pools, namespaces, and workload scheduling.
+* Implemented **GitOps** workflows using **Argo CD** and **Kustomize** to manage Kubernetes resources declaratively.
+* Developed reusable **Terraform modules** and environment-specific configurations to support consistent infrastructure deployments.
+* Built automated **CI pipelines** with **GitHub Actions** for application build, testing, containerization, security scanning, and image publishing.
+* Implemented **progressive delivery** strategies using **Argo Rollouts** for controlled application deployments.
+* Secured the Kubernetes platform using **Kyverno**, **Falco**, **RBAC**, **External Secrets Operator**, and **HashiCorp Vault**.
+* Implemented secure secret management by integrating Kubernetes workloads with external secret providers.
+* Configured **Gateway API**, **NGINX Gateway Fabric**, automated TLS, and DNS-based traffic management for application exposure.
+* Built a comprehensive **observability platform** using **Prometheus**, **Grafana**, and **Alertmanager** for monitoring, visualization, and alerting.
+* Implemented workload autoscaling using **Horizontal Pod Autoscaler (HPA)** and **KEDA** for event-driven scaling.
+* Enabled cost visibility and backup capabilities using **Kubecost** and **Velero**.
+* Applied a **multi-repository architecture** to separate infrastructure, GitOps configuration, application source code, and operational automation.
+* Developed **Python-based automation** for platform health validation, operational reporting, and day-2 maintenance tasks.
+* Gained practical experience designing, deploying, securing, monitoring, and operating a production-inspired Kubernetes platform using modern Platform Engineering practices.
+
+These learning outcomes reflect practical, hands-on experience in designing and operating a cloud-native platform using Infrastructure as Code, GitOps, Kubernetes, CI/CD automation, security, observability, and operational best practices.
+
+---
 ## Skills Gained
 
 | Area                             | Learning Outcomes                                                                                                                                                                 |
