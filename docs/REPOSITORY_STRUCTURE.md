@@ -57,3 +57,154 @@ The platform follows a **multi-repository architecture** that separates infrastr
 This repository organization promotes modularity, improves maintainability, simplifies change management, and aligns with production Platform Engineering practices where infrastructure, platform services, application code, and operational tooling evolve independently while remaining integrated through GitOps workflows.
 
 ---
+## Repository Structure
+
+The Platform Engineering Portfolio is organized into multiple repositories, each responsible for a specific aspect of the platform. This modular structure separates infrastructure provisioning, GitOps configuration, application development, and operational automation, making the platform easier to maintain, scale, and evolve.
+
+```text
+Platform Engineering Portfolio
+│
+├── platform-infra/                    # Infrastructure as Code (Terraform)
+│   │
+│   ├── .github/
+│   │   ├── actions/
+│   │   │   └── gcp-auth/
+│   │   └── workflows/
+│   │
+│   └── terraform/
+│       ├── environments/
+│       │   ├── dev/
+│       │   │   ├── networking/
+│       │   │   ├── iam/
+│       │   │   ├── gke/
+│       │   │   ├── cloud-sql/
+│       │   │   ├── storage/
+│       │   │   │   ├── artifact-registry/
+│       │   │   │   └── cloud-storage/
+│       │   │   └── platform/
+│       │   │       ├── argocd/
+│       │   │       ├── argo-rollouts/
+│       │   │       ├── cert-manager/
+│       │   │       ├── external-secrets/
+│       │   │       ├── falco/
+│       │   │       ├── ingress/
+│       │   │       ├── keda/
+│       │   │       ├── kubecost/
+│       │   │       ├── kyverno/
+│       │   │       ├── monitoring/
+│       │   │       ├── nginx-gateway/
+│       │   │       ├── reloader/
+│       │   │       ├── storage-classes/
+│       │   │       ├── vault/
+│       │   │       └── velero/
+│       │   │
+│       │   └── prod/
+│       │
+│       └── modules/
+│           ├── networking/
+│           ├── iam/
+│           ├── gke/
+│           ├── cloud-sql/
+│           ├── storage/
+│           │   ├── artifact-registry/
+│           │   └── cloud-storage/
+│           └── platform/
+│               ├── argocd/
+│               ├── argo-rollouts/
+│               ├── cert-manager/
+│               ├── external-secrets/
+│               ├── falco/
+│               ├── ingress/
+│               ├── istio/
+│               ├── keda/
+│               ├── kubecost/
+│               ├── kyverno/
+│               ├── monitoring/
+│               ├── nginx-gateway/
+│               ├── reloader/
+│               ├── storage-classes/
+│               ├── vault/
+│               └── velero/
+│
+├── gitops-microservices-platform/     # GitOps Repository
+│   │
+│   ├── apps/
+│   │   ├── vote/
+│   │   │   ├── base/
+│   │   │   └── overlays/
+│   │   │       ├── dev/
+│   │   │       └── prod/
+│   │   │
+│   │   ├── result/
+│   │   │   ├── base/
+│   │   │   └── overlays/
+│   │   │       ├── dev/
+│   │   │       └── prod/
+│   │   │
+│   │   └── worker/
+│   │       ├── base/
+│   │       └── overlays/
+│   │           ├── dev/
+│   │           └── prod/
+│   │
+│   ├── infrastructure/
+│   │   ├── postgres/
+│   │   ├── redis/
+│   │   ├── pgadmin/
+│   │   └── external-secrets-sa/
+│   │
+│   ├── platform/
+│   │   ├── namespaces/
+│   │   ├── gateway-api/
+│   │   ├── ingress/
+│   │   ├── clusterissuer/
+│   │   ├── cluster-secrets/
+│   │   ├── monitoring/
+│   │   │   ├── postgres-exporter/
+│   │   │   └── redis-exporter/
+│   │   └── velero/
+│   │
+│   ├── security/
+│   │   ├── kyverno/
+│   │   ├── falco/
+│   │   └── network-policies/
+│   │
+│   ├── governance/
+│   │   ├── argocd/
+│   │   ├── cert-manager/
+│   │   ├── monitoring/
+│   │   ├── postgres/
+│   │   ├── redis/
+│   │   └── vote/
+│   │
+│   ├── automation/
+│   │   ├── common/
+│   │   └── daily-platform-report/
+│   │
+│   └── argocd/
+│       ├── applicationsets/
+│       └── projects/
+│
+├── voting-app/                        # Application Source Code
+│   ├── vote/
+│   ├── result/
+│   ├── worker/
+│   └── .github/
+│       └── workflows/
+│
+└── platform-automation/               # Platform Automation
+    └── daily-platform-report/
+```
+
+### Repository Layout Summary
+
+| Repository                        | Primary Responsibility                                                                                                                                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **platform-infra**                | Terraform modules and environment configurations that provision Google Cloud infrastructure and install shared Kubernetes platform services.                                                                 |
+| **gitops-microservices-platform** | GitOps repository that defines the desired cluster state through Kubernetes manifests, Kustomize overlays, Argo CD Applications, platform services, security policies, governance resources, and automation. |
+| **voting-app**                    | Application source code for the Vote, Result, and Worker microservices, including Dockerfiles and GitHub Actions CI pipelines.                                                                               |
+| **platform-automation**           | Python-based automation for day-2 platform operations, health validation, reporting, and scheduled maintenance tasks.                                                                                        |
+
+This repository organization follows a production-oriented Platform Engineering model by clearly separating infrastructure provisioning, platform management, application development, and operational automation. Each repository has a distinct responsibility while integrating through GitOps workflows to deliver a secure, scalable, and maintainable Kubernetes platform.
+
+---
