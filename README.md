@@ -50,6 +50,7 @@ operating a Kubernetes platform.
   - [Observability & Operations](#observability--operations)
 - [Key Takeaways](#key-takeaways)
 - [Acknowledgements](#acknowledgements)
+- [License](#license)
 
 ---
 ## Architecture
@@ -435,5 +436,10 @@ The sample application used in this portfolio is based on Docker's Example Votin
 - License: Apache License 2.0
 
 This repository extends the original sample by implementing a production-oriented Platform Engineering solution on Google Cloud Platform, including Infrastructure as Code (Terraform), GitOps with Argo CD, CI/CD with GitHub Actions, Kubernetes platform services, security, observability, progressive delivery, backup and disaster recovery, cost optimization, and platform automation.
+
+---
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
