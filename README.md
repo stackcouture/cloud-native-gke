@@ -192,6 +192,14 @@ Explore the platform through the following documentation.
   <img src="assets/screenshots/result-argocd.png" width="650" alt="Result ArgoCD">
 </p>
 
+---
+### 🚀 Argo Rollouts Strategy
+<p align="left">
+  <img src="assets/screenshots/blue-green-deployment.gif" width="650" alt="Result ArgoCD">
+</p>
+<p align="left">
+  <img src="assets/screenshots/canary-deployment.gif" width="650" alt="Result ArgoCD">
+</p>
 
 ---
 ## Learning Outcomes
