@@ -107,19 +107,21 @@ Platform Engineering Portfolio
 
 Explore the platform through the following documentation.
 
-| Document | Description |
-|----------|-------------|
-| 📘 [PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md) | Complete overview of the platform, goals, repository organization, and key capabilities. |
-| 🏗️ [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Platform architecture, design principles, and component interactions. |
-| ☸️ [KUBERNETES.md](docs/KUBERNETES.md) | Kubernetes cluster design, namespaces, workloads, scheduling, storage, and platform services. |
-| ☁️ [INFRASTRUCTURE.md](docs/INFRASTRUCTURE.md) | Terraform modules, environment layout, GKE provisioning, networking, IAM, and cloud resources. |
-| 🚀 [GITOPS.md](docs/GITOPS.md) | GitOps workflow, Argo CD, ApplicationSets, Kustomize, and deployment strategy. |
-| ⚙️ [CICD.md](docs/CICD.md) | GitHub Actions workflows, container builds, security scanning, SBOM generation, image signing, and deployment automation. |
-| 🔒 [SECURITY.md](docs/SECURITY.md) | Platform security, Kyverno policies, Falco runtime security, External Secrets, RBAC, and certificate management. |
-| 🌐 [NETWORKING.md](docs/NETWORKING.md) | Gateway API, ingress, TLS automation, DNS, and traffic management. |
-| 📊 [OBSERVABILITY.md](docs/OBSERVABILITY.md) | Monitoring, logging, metrics, dashboards, alerting, and operational visibility. |
-| 📈 [AUTOSCALING.md](docs/AUTOSCALING.md) | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler, and scaling strategies. |
-| 🏛️ [DECISIONS.md](docs/DECISIONS.md) | Architecture Decision Records (ADRs), design trade-offs, and technology choices. |
+| Document                                                   | Description                                                                                                                           |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 📘 [PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)         | Complete overview of the platform, goals, repository organization, and key capabilities.                                              |
+| 📂 [REPOSITORY_STRUCTURE.md](docs/REPOSITORY_STRUCTURE.md) | Multi-repository architecture, repository organization, responsibilities, relationships, layered architecture, and design principles. |
+| 🏗️ [ARCHITECTURE.md](docs/ARCHITECTURE.md)                | Platform architecture, design principles, and component interactions.                                                                 |
+| ☸️ [KUBERNETES.md](docs/KUBERNETES.md)                     | Kubernetes cluster design, namespaces, workloads, scheduling, storage, and platform services.                                         |
+| ☁️ [INFRASTRUCTURE.md](docs/INFRASTRUCTURE.md)             | Terraform modules, environment layout, GKE provisioning, networking, IAM, and cloud resources.                                        |
+| 🚀 [GITOPS.md](docs/GITOPS.md)                             | GitOps workflow, Argo CD, ApplicationSets, Kustomize, and deployment strategy.                                                        |
+| ⚙️ [CICD.md](docs/CICD.md)                                 | GitHub Actions workflows, container builds, security scanning, SBOM generation, image signing, and deployment automation.             |
+| 🔒 [SECURITY.md](docs/SECURITY.md)                         | Platform security, Kyverno policies, Falco runtime security, External Secrets, RBAC, and certificate management.                      |
+| 🌐 [NETWORKING.md](docs/NETWORKING.md)                     | Gateway API, ingress, TLS automation, DNS, and traffic management.                                                                    |
+| 📊 [OBSERVABILITY.md](docs/OBSERVABILITY.md)               | Monitoring, logging, metrics, dashboards, alerting, and operational visibility.                                                       |
+| 📈 [AUTOSCALING.md](docs/AUTOSCALING.md)                   | Horizontal Pod Autoscaler (HPA), KEDA, Cluster Autoscaler, and scaling strategies.                                                    |
+| 🏛️ [DECISIONS.md](docs/DECISIONS.md)                      | Architecture Decision Records (ADRs), design trade-offs, and technology choices.                                                      |
+
 
 ---
 ## 🚀 Platform Capabilities
