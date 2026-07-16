@@ -315,39 +315,54 @@ Building this Platform Engineering Portfolio provided hands-on experience across
 These learning outcomes reflect practical, hands-on experience in designing and operating a cloud-native platform using Infrastructure as Code, GitOps, Kubernetes, CI/CD automation, security, observability, and operational best practices.
 
 ---
-## Skills Gained
+## 🔧 Troubleshooting Experience
 
-| Area                             | Learning Outcomes                                                                                                                                                                 |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Infrastructure & Cloud**       | Designed modular Terraform infrastructure, managed remote state, configured VPC networking, Cloud NAT, IAM, Workload Identity Federation, and resolved cloud provisioning issues. |
-| **Platform Engineering**         | Built a production-ready Kubernetes platform integrating GitOps, observability, security, autoscaling, backup, and shared platform services.                                      |
-| **GitOps & Continuous Delivery** | Implemented GitOps with ArgoCD and Kustomize, configured Argo Rollouts, and learned declarative deployment and reconciliation workflows.                                          |
-| **CI/CD & DevSecOps**            | Developed GitHub Actions pipelines for automated testing, container builds, vulnerability scanning, SBOM generation, image signing, and GitOps updates.                           |
-| **Security**                     | Implemented Policy as Code, RBAC, Workload Identity Federation, External Secrets, runtime security, and secure software supply chain practices.                                   |
-| **Observability**                | Built centralized monitoring using Prometheus, Grafana, Alertmanager, ServiceMonitors, and database exporters for operational visibility.                                         |
-| **Reliability**                  | Implemented backup and recovery, autoscaling, cost optimization, and operational best practices for production environments.                                                      |
+Throughout the development of this Platform Engineering Portfolio, I investigated, diagnosed, and resolved a variety of real-world infrastructure, Kubernetes, GitOps, and cloud-native operational challenges. These experiences strengthened my understanding of production troubleshooting and platform operations.
 
----
+### Infrastructure & Cloud
 
-## Troubleshooting Experience
+* Terraform provisioning failures and state management
+* Google Cloud quota limitations and resource allocation
+* IAM roles, permissions, and Workload Identity configuration
+* Google Cloud authentication and service account issues
+* Artifact Registry authentication and image access
 
-Throughout the project, I investigated and resolved real-world engineering challenges, including:
+### Kubernetes Platform
 
-* Terraform provisioning failures
-* Google Cloud quota limitations
-* IAM permission and authentication issues
-* Kubernetes scheduling and resource allocation problems
-* Node pools, taints, tolerations, and affinity configuration
-* Helm deployment failures
-* DNS, Gateway API, and ingress configuration
-* TLS certificate issuance and renewal
-* External Secrets synchronization
-* Persistent storage provisioning
-* Container registry authentication
-* GitOps synchronization and reconciliation
-* Progressive deployment configuration
-* Monitoring and alerting configuration
-* Kubernetes networking and traffic routing
+* Pod scheduling and resource allocation
+* Node pool design and workload placement
+* Node taints, tolerations, and affinity configuration
+* Namespace isolation and resource management
+* Persistent storage provisioning and StorageClass configuration
+* Stateful workload deployment and troubleshooting
+
+### GitOps & Deployment
+
+* Argo CD synchronization and reconciliation issues
+* Kustomize overlay configuration
+* Progressive delivery using Argo Rollouts
+* Helm chart installation and upgrade failures
+* Kubernetes manifest validation and debugging
+
+### Networking & Security
+
+* Gateway API and NGINX Gateway Fabric configuration
+* Ingress and service routing
+* DNS configuration and resolution
+* TLS certificate issuance and automated renewal with cert-manager
+* External Secrets synchronization with Google Secret Manager
+* RBAC configuration and access control
+* Kubernetes Network Policies
+
+### Observability & Operations
+
+* Prometheus metrics collection and ServiceMonitor configuration
+* Grafana dashboard creation and visualization
+* Alertmanager configuration and alert routing
+* Log analysis and platform diagnostics
+* Platform health validation and operational troubleshooting
+
+These troubleshooting scenarios provided practical experience in identifying root causes, interpreting logs and metrics, validating Kubernetes resources, and implementing reliable solutions across infrastructure, platform services, application deployments, and day-2 operations.
 
 ---
 ## Key Takeaways
