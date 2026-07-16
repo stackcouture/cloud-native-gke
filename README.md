@@ -181,15 +181,21 @@ Explore the platform through the following documentation.
 <table>
   <tr>
     <td align="center">
-      <img src="assets/screenshots/vote-argocd.png" width="300"><br>
+      <img src="assets/screenshots/architecture.png" width="550" alt="Architecture"> </br>
+      <b>ArgoCD Output</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/vote-argocd.png" width="400"><br>
       <b>Vote</b>
     </td>
     <td align="center">
-      <img src="assets/screenshots/worker-argocd.png" width="300"><br>
+      <img src="assets/screenshots/worker-argocd.png" width="400"><br>
       <b>Worker</b>
     </td>
     <td align="center">
-      <img src="assets/screenshots/result-argocd.png" width="300"><br>
+      <img src="assets/screenshots/result-argocd.png" width="400"><br>
       <b>Result</b>
     </td>
   </tr>
