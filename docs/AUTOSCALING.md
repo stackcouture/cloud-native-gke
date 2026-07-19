@@ -1,10 +1,10 @@
-## 📈 Platform Autoscaling
+## Cloud-Native Autoscaling
 
-### 📖 Overview
+### Overview
 
-This document describes the autoscaling architecture implemented for the **Production-Inspired Platform Engineering on Google Kubernetes Engine (GKE)** project.
+This document describes the autoscaling architecture implemented for the **Cloud Native GKE** project.
 
-The platform combines multiple autoscaling mechanisms to optimize resource utilization while maintaining application performance under varying workloads.
+The project combines multiple Kubernetes autoscaling mechanisms to optimize resource utilization while maintaining application performance under varying workloads. It demonstrates how modern cloud-native applications can automatically scale at the pod, workload, and cluster levels in response to both resource consumption and application demand.
 
 Three complementary autoscaling capabilities are implemented:
 
@@ -12,7 +12,20 @@ Three complementary autoscaling capabilities are implemented:
 * **KEDA** for event-driven worker scaling based on Redis queue length
 * **Cluster Autoscaler** for dynamically scaling Kubernetes worker nodes
 
-Together, these components provide scalable and efficient resource management across the platform.
+Together, these components provide scalable, resilient, and efficient resource management for cloud-native workloads running on **Google Kubernetes Engine (GKE)**.
+
+---
+## Autoscaling Goals
+
+The Cloud Native GKE project was designed to:
+
+* Scale application workloads automatically
+* Optimize infrastructure utilization
+* Reduce manual operational effort
+* Support fluctuating workloads
+* Improve application availability
+* Scale background worker services based on real workload demand
+
 
 ---
 ## 📑 Table of Contents
