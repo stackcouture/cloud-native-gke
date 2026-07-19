@@ -235,6 +235,9 @@ Explore the platform through the following documentation.
 
 ### CI/CD Demo
 
+> [!TIP]
+> **🎬 Click the screenshot below to watch the CI/CD Demo.**
+
 <p align="left">
   <a href="docs/images/demo-latest.gif">
     <img src="docs/images/ci-cd-gitops-workflow.png"
@@ -243,25 +246,27 @@ Explore the platform through the following documentation.
   </a>
 </p>
 
-<p align="center">
-Click the screenshot to view the complete CI/CD workflow.
-</p>
-
-
+---
 ### GitOps with Argo CD
+
 <b> ArgoCD Output</b>
 <p align="left">
   <img src="assets/screenshots/argocd-output.png" width="650" alt="ArgoCD Output">
 </p>
 
+---
 <b>Vote ArgoCD</b>
 <p align="left">
   <img src="assets/screenshots/vote-argocd.png" width="650" alt="Vote ArgoCD">
 </p>
+
+---
 <b>Worker ArgoCD</b>
 <p align="left">
   <img src="assets/screenshots/worker-argocd.png" width="650" alt="Worker ArgoCD">
 </p>
+
+---
 <b>Result ArgoCD</b>
 <p align="left">
   <img src="assets/screenshots/result-argocd.png" width="650" alt="Result ArgoCD">
