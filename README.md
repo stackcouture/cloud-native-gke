@@ -235,7 +235,7 @@ Explore the platform through the following documentation.
 
 ### CI/CD Demo
 
-<p align="center">
+<p align="left">
   <a href="docs/images/demo-latest.gif">
     <img src="docs/images/ci-cd-gitops-workflow.png"
          width="400"
@@ -244,7 +244,7 @@ Explore the platform through the following documentation.
 </p>
 
 <p align="center">
-Click the screenshot to view the complete animated CI/CD workflow.
+Click the screenshot to view the complete CI/CD workflow.
 </p>
 
 
@@ -270,12 +270,34 @@ Click the screenshot to view the complete animated CI/CD workflow.
 ---
 ### Argo Rollouts Strategy
 <b>Blue-Green Deployment</b>
-<p align="left">
+<!-- <p align="left">
   <img src="assets/screenshots/blue-green-deployment.gif" width="650" alt="Blue-Green Deployment">
-</p>
-<b>Canary Deployment</b>
+</p> -->
+
 <p align="left">
-  <img src="assets/screenshots/canary-deployment.gif" width="650" alt="Canary Deployment">
+  <a href="assets/screenshots/blue-green-deployment.gif">
+    <img src="docs/images/blue-green.png"
+         width="400"
+         alt="Blue-Green Demo">
+  </a>
+</p>
+
+<p align="center">
+Click the screenshot to view the complete Blue-Green Deployment.
+</p>
+
+<b>Canary Deployment</b>
+
+<p align="left">
+  <a href="assets/screenshots/canary-deployment.gif">
+    <img src="docs/images/canary.png"
+         width="400"
+         alt="Canary Demo">
+  </a>
+</p>
+
+<p align="center">
+Click the screenshot to view the complete Canary Deployment.
 </p>
 
 ---
