@@ -227,9 +227,24 @@ Explore the platform through the following documentation.
 ---
 ## Demo Screenshots
 
-### CI/CD Demo 
+<!-- ### CI/CD Demo 
 <p align="left">
   <img src="docs/images/demo-latest.gif" width="550" alt="CI/CD Demo">
+</p> -->
+
+
+### CI/CD Demo
+
+<p align="center">
+  <a href="docs/images/demo-latest.gif">
+    <img src="assets/screenshots/ci-cd-gitops-workflow.png"
+         width="700"
+         alt="CI/CD Demo">
+  </a>
+</p>
+
+<p align="center">
+Click the screenshot to view the complete animated CI/CD workflow.
 </p>
 
 
