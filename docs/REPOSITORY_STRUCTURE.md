@@ -14,23 +14,9 @@ The platform integrates infrastructure provisioning, GitOps-based continuous del
 </p>
 
 ---
-### Repository Organization
+### Key Capabilities
 
-The platform is organized into four repositories:
-
-| Repository                        | Description                                                                                                                                                                 |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **platform-infra**                | Provisions Google Cloud infrastructure and Kubernetes platform services using Terraform.                                                                                    |
-| **gitops-microservices-platform** | GitOps repository containing Kubernetes manifests, Kustomize overlays, Argo CD Applications, platform services, security policies, and environment-specific configurations. |
-| **voting-app**                    | Microservices application source code, Dockerfiles, automated testing, and GitHub Actions CI pipelines.                                                                     |
-| **platform-automation**           | Python-based automation for platform validation, health reporting, scheduled maintenance, and day-2 operational tasks.                                                      |
-
-This separation of responsibilities establishes clear ownership boundaries between infrastructure provisioning, platform configuration, application development, and operational automation. It enables infrastructure changes, application releases, and platform operations to evolve independently while maintaining a consistent GitOps workflow.
-
----
-### Platform Capabilities
-
-The portfolio demonstrates the following Platform Engineering capabilities:
+The project demonstrates the following Platform Engineering capabilities:
 
 * Infrastructure provisioning with **Terraform**
 * Google Kubernetes Engine (**GKE**) cluster management
