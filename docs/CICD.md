@@ -44,7 +44,7 @@ The pipeline was designed with the following objectives:
 ---
 ## 🏗️ CI/CD Architecture
 
-<p align="center">
+<p align="left">
   <img src="images/gitops.png" width="550" alt="CI/CD Architecture">
 </p>
 
