@@ -238,7 +238,7 @@ Explore the platform through the following documentation.
 <p align="center">
   <a href="docs/images/demo-latest.gif">
     <img src="docs/images/ci-cd-gitops-workflow.png"
-         width="700"
+         width="400"
          alt="CI/CD Demo">
   </a>
 </p>
