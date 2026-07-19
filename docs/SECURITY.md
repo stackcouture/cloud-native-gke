@@ -1,36 +1,50 @@
-## 🔒 Platform Security
+## Security
 
-### 📖 Overview
+### Overview
 
-This document describes the security architecture implemented for the **Production-Inspired Platform Engineering on Google Kubernetes Engine (GKE)** project.
+This document describes the security architecture implemented for the **Cloud-Native on Google Kubernetes Engine (GKE)** project.
 
 Security is integrated throughout the platform lifecycle—from infrastructure provisioning and identity management to software supply chain protection, Kubernetes policy enforcement, secret management, networking, and runtime security.
 
 The platform follows a **defense-in-depth** approach by applying multiple complementary security controls rather than relying on a single mechanism.
 
 ---
-## 📑 Table of Contents
+## Table of Contents
 
-* 📖 Overview
-* 🛡️ Security Principles
-* 🔐 Identity and Access Management
-* 🔑 Secret Management
-* 📋 Policy Enforcement
-* 📦 Container Image Security
-* ⛓️ Software Supply Chain Security
-* ☸️ Kubernetes Runtime Security
-* 🦅 Runtime Threat Detection 
-* 🛡️ Defense-in-Depth Security Architecture
-* 🌐 Network Security
-* 📜 Certificate Management
-* 🚀 Deployment Security
-* 📊 Security Monitoring
-* ⚠️ Challenges Encountered
-* 🎓 Key Learnings
-* 📝 Summary
+* [Overview](#overview)
+* [Security Principles](#security-principles)
+* [Identity and Access Management](#identity-and-access-management)
+
+  * [Google Cloud IAM](#google-cloud-iam)
+  * [Workload Identity](#workload-identity)
+  * [RBAC](#rbac)
+  * [Service Accounts](#service-accounts)
+* [Secret Management](#secret-management)
+* [Policy Enforcement](#policy-enforcement)
+* [Container Image Security](#container-image-security)
+
+  * [Trivy](#trivy)
+* [Software Supply Chain Security](#software-supply-chain-security)
+
+  * [SBOM](#sbom)
+  * [Cosign](#cosign)
+* [Kubernetes Runtime Security](#kubernetes-runtime-security)
+* [Runtime Threat Detection](#runtime-threat-detection)
+
+  * [Runtime Detection Capabilities](#runtime-detection-capabilities)
+  * [Alert Workflow](#alert-workflow)
+  * [Defense-in-Depth Security Architecture](#defense-in-depth-security-architecture)
+  * [End-to-End Security Lifecycle](#end-to-end-security-lifecycle)
+* [Network Security](#network-security)
+* [Certificate Management](#certificate-management)
+* [Deployment Security](#deployment-security)
+* [Security Monitoring](#security-monitoring)
+* [Challenges Encountered](#challenges-encountered)
+* [Key Learnings](#key-learnings)
+* [Summary](#summary)
 
 ---
-## 🛡️ Security Principles
+## Security Principles
 
 The platform is designed around the following principles:
 
@@ -44,7 +58,7 @@ The platform is designed around the following principles:
 * Defense in depth
 
 ---
-## 🔐 Identity and Access Management
+## Identity and Access Management
 
 ### Google Cloud IAM
 
@@ -90,7 +104,7 @@ Dedicated Kubernetes Service Accounts are created for application workloads.
 This improves workload isolation and follows the principle of least privilege.
 
 ---
-## 🔑 Secret Management
+## Secret Management
 
 Sensitive configuration is stored outside Git.
 
@@ -120,7 +134,7 @@ Benefits include:
 * Kubernetes-native secret consumption
 
 ---
-## 📋 Policy Enforcement
+## Policy Enforcement
 
 Kyverno provides Kubernetes-native admission control.
 
@@ -139,7 +153,7 @@ Examples include:
 These policies help maintain platform-wide governance and consistency.
 
 ---
-## 📦 Container Image Security
+## Container Image Security
 
 Container images are validated before deployment.
 
@@ -156,7 +170,7 @@ Checks include:
 Only scanned images are promoted through the deployment pipeline.
 
 ---
-## ⛓️ Software Supply Chain Security
+## Software Supply Chain Security
 
 The platform protects the software supply chain using:
 
@@ -182,7 +196,7 @@ Benefits include:
 * Trusted deployments
 
 ---
-## ☸️ Kubernetes Runtime Security
+## Kubernetes Runtime Security
 
 Application workloads follow Kubernetes security best practices.
 
@@ -201,7 +215,7 @@ Dedicated node pools further isolate:
 * Stateful services
 
 ---
-## 🦅 Runtime Threat Detection
+## Runtime Threat Detection
 
 The platform implements Falco to provide real-time runtime security monitoring for Kubernetes workloads.
 
@@ -211,7 +225,7 @@ Together, Kyverno and Falco provide both preventive and detective security contr
 
 Falco Architecture
 
-<p align="center"> <img src="images/falco-architecture.jpg" width="350" alt="Falco Runtime Security"> </p>
+<p align="left"> <img src="images/falco-architecture.jpg" width="350" alt="Falco Runtime Security"> </p>
 
 Falco continuously monitors runtime activity across the Kubernetes cluster and evaluates events against predefined security rules. When suspicious behavior is detected, Falco generates alerts that can be integrated with the platform's monitoring and notification systems.
 
@@ -219,16 +233,16 @@ Falco continuously monitors runtime activity across the Kubernetes cluster and e
 
 Falco is configured to detect runtime security events including:
 
-- 🖥️ Interactive shell execution inside containers
-- 🔓 Privilege escalation attempts
-- ⚙️ Unauthorized process execution
-- 📁 Access to sensitive host files
-- 🚨 Container escape attempts
-- ☸️ Suspicious Kubernetes API activity
-- 🌐 Unexpected outbound network connections
-- 📝 Modification of critical system binaries
-- 🚫 Execution of unauthorized binaries
-- 📊 Anomalous container behavior
+- Interactive shell execution inside containers
+- Privilege escalation attempts
+- Unauthorized process execution
+- Access to sensitive host files
+- Container escape attempts
+- Suspicious Kubernetes API activity
+- Unexpected outbound network connections
+- Modification of critical system binaries
+- Execution of unauthorized binaries
+- Anomalous container behavior
 
 These detections provide continuous visibility into workload activity after deployment.
 
@@ -258,33 +272,33 @@ Benefits
 
 Falco enhances the platform by providing:
 
-- 👁️ Continuous runtime monitoring
-- 🚨 Real-time threat detection
-- ☸️ Kubernetes behavioral analysis
-- ⚡ Early attack detection
-- 📊 Security event visibility
-- ⏱️ Faster incident response
-- 📋 Compliance monitoring
-- 🛡️ Runtime policy enforcement
-- 📉 Reduced Mean Time to Detect (MTTD)
-- 🔒 Improved operational security
+- Continuous runtime monitoring
+- Real-time threat detection
+- Kubernetes behavioral analysis
+- Early attack detection
+- Security event visibility
+- Faster incident response
+- Compliance monitoring
+- Runtime policy enforcement
+- Reduced Mean Time to Detect (MTTD)
+- Improved operational security
 
-### 🛡️ Defense-in-Depth Security Architecture
+### Defense-in-Depth Security Architecture
 
 The platform implements multiple layers of security throughout the software delivery lifecycle.
 
 | Security Layer | Technology |
 |----------------|------------|
-| 🔐 Identity & Access | Google Cloud IAM, Workload Identity, RBAC, Service Accounts |
-| 🔑 Secret Management | External Secrets Operator, Google Secret Manager, HashiCorp Vault |
-| 📋 Policy Enforcement | Kyverno |
-| 📦 Container Image Security | Trivy |
-| ⛓️ Software Supply Chain | SBOM, Cosign |
-| 🦅 Runtime Threat Detection | Falco |
-| 🌐 Network Security | Gateway API, Cloudflare, TLS |
-| 📜 Certificate Management | cert-manager |
-| 🚀 Progressive Delivery | Argo Rollouts |
-| 📊 Security Monitoring | Prometheus, Grafana, Alertmanager |
+| Identity & Access | Google Cloud IAM, Workload Identity, RBAC, Service Accounts |
+| Secret Management | External Secrets Operator, Google Secret Manager, HashiCorp Vault |
+| Policy Enforcement | Kyverno |
+| Container Image Security | Trivy |
+| Software Supply Chain | SBOM, Cosign |
+| Runtime Threat Detection | Falco |
+| Network Security | Gateway API, Cloudflare, TLS |
+| Certificate Management | cert-manager |
+| Progressive Delivery | Argo Rollouts |
+| Security Monitoring | Prometheus, Grafana, Alertmanager |
 
 #### End-to-End Security Lifecycle
 
@@ -322,7 +336,7 @@ The platform implements multiple layers of security throughout the software deli
 The platform follows a layered security approach that protects workloads throughout their lifecycle. Trivy, SBOM, and Cosign secure the software supply chain before deployment. Kyverno enforces Kubernetes admission policies to validate resources before they are created. Once workloads are running, Falco continuously monitors runtime behavior and detects suspicious activity. Combined with Workload Identity, External Secrets Operator, Google Secret Manager, HashiCorp Vault, cert-manager, and centralized monitoring through Prometheus, Grafana, and Alertmanager, these controls provide a comprehensive defense-in-depth security architecture for the platform.
 
 ---
-## 🌐 Network Security
+## Network Security
 
 External traffic enters the cluster through:
 
@@ -333,7 +347,7 @@ External traffic enters the cluster through:
 Traffic is protected using HTTPS and routed through declarative Gateway API resources.
 
 ---
-## 📜 Certificate Management
+## Certificate Management
 
 TLS certificates are managed automatically using cert-manager.
 
@@ -347,7 +361,7 @@ Features include:
 This removes manual certificate management from platform operations.
 
 ---
-## 🚀 Deployment Security
+## Deployment Security
 
 Application deployments are managed using Argo Rollouts.
 
@@ -359,7 +373,7 @@ Deployment strategies include:
 Progressive delivery minimizes deployment risk by validating application health before full rollout.
 
 ---
-## 📊 Security Monitoring
+## Security Monitoring
 
 Security-related visibility is provided through:
 
@@ -375,7 +389,7 @@ Monitoring includes:
 * Alert notifications
 
 ---
-## ⚠️ Challenges Encountered
+## Challenges Encountered
 
 Key security challenges included:
 
@@ -389,7 +403,7 @@ Key security challenges included:
 These were resolved through iterative testing, IAM policy refinement, Kubernetes event analysis, and controller log inspection.
 
 ---
-## 🎓 Key Learnings
+## Key Learnings
 
 This project provided practical experience with:
 
@@ -405,7 +419,7 @@ This project provided practical experience with:
 * Defense-in-depth architecture
 
 ---
-## 📝 Summary
+## Summary
 
 The platform integrates security across every stage of the application lifecycle. Identity management, secret externalization, policy enforcement, secure software supply chains, automated certificate management, runtime hardening, and deployment safeguards work together to create a production-inspired Kubernetes platform aligned with modern Platform Engineering and DevSecOps practices.
 
