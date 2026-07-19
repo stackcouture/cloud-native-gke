@@ -301,15 +301,21 @@ Explore the platform through the following documentation.
 
 ---
 ### Observability
-<b>Appplication SLO Voting</b>
+
+<h4 align="left">Application SLO Metrics</h4>
+
 <p align="left">
   <img src="assets/screenshots/grafana/appplication-slo-voting-1.png" width="650" alt="Appplication SLO Voting">
 </p>
-<b>Cluster CPU-memory Utilization</b>
+
+---
+<h4 align="left">Cluster Resource Utilization</h4>
 <p align="left">
   <img src="assets/screenshots/grafana/cluster-cpu-memory-utilization.png" width="650" alt="cluster-cpu-memory-utilization">
 </p>
-<b>Application Latency</b>
+
+---
+<h4 align="left">Application Request Latency</h4>
 <p align="left">
   <img src="assets/screenshots/grafana/latency-applciation.png" width="650" alt="Latency Application">
 </p>
