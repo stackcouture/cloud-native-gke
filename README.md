@@ -41,6 +41,26 @@ This project demonstrates an end-to-end cloud-native workflow covering the compl
 
 The primary objective of this repository is to demonstrate practical experience in building and operating a modern Kubernetes environment that reflects real-world engineering practices. It provides a comprehensive reference for Infrastructure as Code, GitOps, DevSecOps, observability, security, and Kubernetes operations on Google Kubernetes Engine (GKE).
 
+<p align="left">
+
+![Google Kubernetes Engine](https://img.shields.io/badge/Google_Kubernetes_Engine-GKE-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-GitOps-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![Gateway API](https://img.shields.io/badge/Gateway_API-Traffic_Management-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Argo Rollouts](https://img.shields.io/badge/Argo_Rollouts-Progressive_Delivery-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![Kyverno](https://img.shields.io/badge/Kyverno-Policy_as_Code-326CE5?style=for-the-badge)
+![Falco](https://img.shields.io/badge/Falco-Runtime_Security-00ADEF?style=for-the-badge)
+![External Secrets](https://img.shields.io/badge/External_Secrets-Secrets_Management-4CAF50?style=for-the-badge)
+![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-Dashboards-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+![Alertmanager](https://img.shields.io/badge/Alertmanager-Alerts-E6522C?style=for-the-badge)
+![Kubecost](https://img.shields.io/badge/Kubecost-Cost_Optimization-00A36C?style=for-the-badge)
+![KEDA](https://img.shields.io/badge/KEDA-Event_Driven_Autoscaling-326CE5?style=for-the-badge)
+![cert-manager](https://img.shields.io/badge/cert--manager-TLS_Automation-4285F4?style=for-the-badge)
+
+</p>
+
 ---
 ## Table of Contents
 
@@ -80,26 +100,6 @@ The primary objective of this repository is to demonstrate practical experience 
 
 ---
 ## Technology Stack
-
-<p align="left">
-
-![Google Kubernetes Engine](https://img.shields.io/badge/Google_Kubernetes_Engine-GKE-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![Argo CD](https://img.shields.io/badge/Argo_CD-GitOps-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
-![Gateway API](https://img.shields.io/badge/Gateway_API-Traffic_Management-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Argo Rollouts](https://img.shields.io/badge/Argo_Rollouts-Progressive_Delivery-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
-![Kyverno](https://img.shields.io/badge/Kyverno-Policy_as_Code-326CE5?style=for-the-badge)
-![Falco](https://img.shields.io/badge/Falco-Runtime_Security-00ADEF?style=for-the-badge)
-![External Secrets](https://img.shields.io/badge/External_Secrets-Secrets_Management-4CAF50?style=for-the-badge)
-![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-Dashboards-F46800?style=for-the-badge&logo=grafana&logoColor=white)
-![Alertmanager](https://img.shields.io/badge/Alertmanager-Alerts-E6522C?style=for-the-badge)
-![Kubecost](https://img.shields.io/badge/Kubecost-Cost_Optimization-00A36C?style=for-the-badge)
-![KEDA](https://img.shields.io/badge/KEDA-Event_Driven_Autoscaling-326CE5?style=for-the-badge)
-![cert-manager](https://img.shields.io/badge/cert--manager-TLS_Automation-4285F4?style=for-the-badge)
-
-</p>
 
 | Category | Technologies |
 |----------|--------------|
