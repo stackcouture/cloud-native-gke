@@ -1,16 +1,16 @@
 
-## Project Name
-
-**Production-Inspired Platform Engineering on Google Kubernetes Engine (GKE)**
+**Cloud-Native on Google Kubernetes Engine (GKE)**
 
 ---
 ## Project Objective
 
-This project demonstrates the design and implementation of a **production-inspired Platform Engineering solution** on **Google Kubernetes Engine (GKE)** using modern cloud-native technologies and GitOps practices.
+**Cloud Native GKE** is a production-inspired Platform Engineering project that demonstrates how to design, build, and operate a modern Kubernetes platform on **Google Kubernetes Engine (GKE)** using cloud-native technologies and GitOps principles.
 
-Rather than focusing solely on deploying applications, the project emphasizes building the **underlying Kubernetes platform** that enables development teams to deploy applications securely, consistently and through automated workflows.
+Rather than focusing solely on deploying applications, the project showcases the complete platform lifecycle—from infrastructure provisioning and Kubernetes platform services to secure application delivery, observability, networking, autoscaling, and day-2 operations.
 
-The platform incorporates Infrastructure as Code (IaC), GitOps, DevSecOps, observability, progressive delivery, autoscaling and cost optimization to reflect common enterprise platform engineering practices.
+The platform is built using **Infrastructure as Code (IaC)** with Terraform, **GitOps** with Argo CD and Kustomize, **GitHub Actions** for continuous integration, and a collection of production-inspired Kubernetes technologies for security, monitoring, traffic management, progressive delivery, and operational automation.
+
+The objective is to demonstrate a repeatable, secure, scalable, and maintainable cloud-native platform that reflects modern Platform Engineering practices and enterprise Kubernetes deployments on **Google Kubernetes Engine (GKE)**.
 
 ---
 ## Problem Statement
@@ -31,51 +31,51 @@ Many Kubernetes sample projects focus only on deploying containerized applicatio
 This project addresses those gaps by implementing a production-inspired platform that demonstrates how Kubernetes infrastructure can be provisioned, managed, secured and operated using automation and declarative workflows.
 
 ---
-## 📑 Table of Contents
-- [🏗️ High-Level Architecture](#high-level-architecture)
-- [🏛️ Project Architecture](#project-architecture)
-  - [☁️ Infrastructure Layer](#infrastructure-layer)
-  - [⚙️ Platform Layer](#platform-layer)
-  - [🔨 CI Pipeline](#ci-pipeline)
-  - [🚀 GitOps Deployment](#gitops-deployment)
-  - [📦 Application Layer](#application-layer)
-  - [🌐 Networking](#networking)
-  - [🔄 Progressive Delivery](#progressive-delivery)
-  - [🔒 Platform Security](#platform-security)
-    - [🛡️ Image Security](#image-security)
-    - [📦 Supply Chain Security](#supply-chain-security)
-    - [📋 Policy Enforcement](#policy-enforcement)
-    - [🔑 Secret Management](#secret-management)
-    - [🔐 TLS Management](#tls-management)
-  - [📈 Autoscaling](#autoscaling)
-    - [📊 Horizontal Pod Autoscaler (HPA)](#horizontal-pod-autoscaler-hpa)
-    - [⚡ KEDA](#keda)
-  - [📊 Observability](#observability)
-- [🧩 Platform Services](#platform-services)
-- [⚠️ Challenges Encountered](#challenges-encountered)
-- [✅ Project Outcomes](#project-outcomes)
-- [🛠️ Technology Stack](#technology-stack)
-  - [☁️ Cloud](#cloud)
-  - [🏗️ Infrastructure](#infrastructure)
-  - [📦 Container Platform](#container-platform)
-  - [🚀 CI/CD](#cicd)
-  - [🛡️ DevSecOps](#devsecops)
-  - [📊 Observability](#observability)
-  - [🌐 Networking](#networking)
-  - [🗄️ Databases](#databases)
-- [🎓 Key Learning Outcomes](#key-learning-outcomes)
+## Table of Contents
+- [High-Level Architecture](#high-level-architecture)
+- [Project Architecture](#project-architecture)
+  - [Infrastructure Layer](#infrastructure-layer)
+  - [Platform Layer](#platform-layer)
+  - [CI Pipeline](#ci-pipeline)
+  - [GitOps Deployment](#gitops-deployment)
+  - [Application Layer](#application-layer)
+  - [Networking](#networking)
+  - [Progressive Delivery](#progressive-delivery)
+  - [Platform Security](#platform-security)
+    - [Image Security](#image-security)
+    - [Supply Chain Security](#supply-chain-security)
+    - [Policy Enforcement](#policy-enforcement)
+    - [Secret Management](#secret-management)
+    - [TLS Management](#tls-management)
+  - [Autoscaling](#autoscaling)
+    - [Horizontal Pod Autoscaler (HPA)](#horizontal-pod-autoscaler-hpa)
+    - [KEDA](#keda)
+  - [Observability](#observability)
+- [Platform Services](#platform-services)
+- [Challenges Encountered](#challenges-encountered)
+- [Project Outcomes](#project-outcomes)
+- [Technology Stack](#technology-stack)
+  - [Cloud](#cloud)
+  - [Infrastructure](#infrastructure)
+  - [Container Platform](#container-platform)
+  - [CI/CD](#cicd)
+  - [DevSecOps](#devsecops)
+  - [Observability](#observability)
+  - [Networking](#networking)
+  - [Databases](#databases)
+- [Key Learning Outcomes](#key-learning-outcomes)
 
 ---
 ## High-Level Architecture
 
-<p align="center">
+<p align="left">
   <img src="images/high_level_arch.png" width="550" alt="Project Overview">
 </p>
 
 ---
 ## Project Architecture
 
-The platform follows a layered architecture consisting of infrastructure, platform services, application workloads, and operational tooling.
+The project follows a layered architecture consisting of infrastructure, platform services, application workloads, and operational tooling.
 
 ### Infrastructure Layer
 
