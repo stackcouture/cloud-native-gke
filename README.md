@@ -1,23 +1,45 @@
-### Production-Inspired Cloud-Native Platform on Google Kubernetes Engine (GKE)
+### Cloud-Native Kubernetes Environment on Google Kubernetes Engine (GKE)
 
-A production-inspired Kubernetes platform demonstrating Infrastructure as Code, GitOps, DevSecOps, Progressive Delivery, Observability, Runtime Security, and Automated Platform Operations.
+A production-inspired cloud-native Kubernetes environment built on **Google Kubernetes Engine (GKE)** that demonstrates modern Platform Engineering, GitOps, DevSecOps, and Kubernetes operational practices.
 
----
+The project goes beyond deploying an application by showcasing how infrastructure, automation, security, observability, and Kubernetes operations work together to build a production-ready environment.
+
 ## Overview
 
-This repository demonstrates how a modern cloud-native platform can be built
-using production-inspired platform engineering practices on Google Kubernetes
-Engine (GKE).
+This repository contains a production-inspired Kubernetes environment built on **Google Kubernetes Engine (GKE)**. It demonstrates how modern cloud-native technologies can be integrated to provision infrastructure, automate application delivery, secure workloads, monitor cluster health, and operate Kubernetes applications using industry-standard practices.
 
-The project provisions infrastructure using Terraform, deploys applications
-through GitOps with Argo CD, secures workloads using Kyverno and External
-Secrets, implements Progressive Delivery with Argo Rollouts, monitors the
-platform using Prometheus and Grafana, and automates operational tasks such as
-autoscaling, certificate management, and cost visibility.
+The platform uses a **polyglot voting application** as the workload. The application consists of multiple microservices running on Kubernetes and serves as a realistic example for implementing deployment automation, security, observability, and day-to-day cluster operations.
 
-Rather than focusing on deploying a single application, this project showcases
-the end-to-end lifecycle of designing, deploying, securing, observing, and
-operating a Kubernetes platform.
+## Key Capabilities
+
+* **Infrastructure as Code** with Terraform
+* **Continuous Integration** using GitHub Actions
+* **GitOps-based Continuous Delivery** with Argo CD and Kustomize
+* **Policy Enforcement** using Kyverno
+* **Secrets Management** with External Secrets
+* **Automated TLS Certificate Management** using cert-manager and Cloudflare DNS
+* **Progressive Delivery** with Argo Rollouts
+* **Monitoring, Alerting, and Cost Visibility** using Prometheus, Grafana, Alertmanager, and Kubecost
+* **Workload Isolation** through dedicated node pools, node labels, taints, tolerations, and node affinity
+
+## Project Goals
+
+This project demonstrates an end-to-end cloud-native workflow covering the complete application lifecycle:
+
+* Provisioning cloud infrastructure
+* Building and deploying applications
+* Implementing GitOps workflows
+* Enforcing Kubernetes security policies
+* Managing secrets securely
+* Automating certificate management
+* Performing progressive application deployments
+* Monitoring cluster and application health
+* Visualizing infrastructure costs
+* Operating Kubernetes workloads using production-inspired best practices
+
+## Purpose
+
+The primary objective of this repository is to demonstrate practical experience in building and operating a modern Kubernetes environment that reflects real-world engineering practices. It provides a comprehensive reference for Infrastructure as Code, GitOps, DevSecOps, observability, security, and Kubernetes operations on Google Kubernetes Engine (GKE).
 
 ---
 ## Table of Contents
@@ -56,7 +78,7 @@ operating a Kubernetes platform.
 ## Architecture
 
 The following architecture illustrates the complete platform deployment on GCP.
-![Architecture Diagram](docs/images/platform_solution.png "Platform Architecture")
+![Architecture Diagram](docs/images/cloud-native.png "Cloud-Native Architecture")
 
 ---
 ## Technology Stack
@@ -102,15 +124,15 @@ The following architecture illustrates the complete platform deployment on GCP.
 The Platform Engineering Portfolio follows a multi-repository architecture that separates infrastructure provisioning, GitOps configuration, application source code, and platform automation into independent repositories.
 
 ```text
-Platform Engineering Portfolio
+cloud-native-gke
 │
-├── platform-infra/                    # Infrastructure as Code
+├── gke-infrastructure/                    # Infrastructure as Code
 │   ├── terraform/
 │   │   ├── environments/
 │   │   └── modules/
 │   └── .github/workflows/
 │
-├── gitops-microservices-platform/     # GitOps & Kubernetes Platform
+├── gke-gitops/     # GitOps & Kubernetes Platform
 │   ├── apps/
 │   ├── infrastructure/
 │   ├── platform/
@@ -125,7 +147,7 @@ Platform Engineering Portfolio
 │   ├── worker/
 │   └── .github/workflows/
 │
-└── platform-automation/               # Day-2 Platform Operations
+└── cluster-operations/               # Day-2 Cluster Operations
     ├── automation/
     ├── reports/
     └── scripts/
@@ -135,10 +157,10 @@ Platform Engineering Portfolio
 
 | Repository | Responsibility |
 |------------|----------------|
-| **[platform-infra](https://github.com/stackcouture/platform-infra)** | Provisions Google Cloud infrastructure and shared Kubernetes platform services using reusable Terraform modules, including GKE, networking, IAM, Cloud SQL, Artifact Registry, and platform components. |
-| **[gitops-microservices-platform](https://github.com/stackcouture/gitops-microservices-platform)** | Serves as the GitOps source of truth by managing Kubernetes manifests, Kustomize overlays, Argo CD ApplicationSets, platform services, infrastructure workloads, security policies, governance resources, and environment-specific configurations. |
+| **[gke-infrastructure](https://github.com/stackcouture/gke-infrastructure)** | Provisions Google Cloud infrastructure and shared Kubernetes platform services using reusable Terraform modules, including GKE, networking, IAM, Cloud SQL, Artifact Registry, and platform components. |
+| **[gke-gitops](https://github.com/stackcouture/gke-gitops)** | Serves as the GitOps source of truth by managing Kubernetes manifests, Kustomize overlays, Argo CD ApplicationSets, platform services, infrastructure workloads, security policies, governance resources, and environment-specific configurations. |
 | **[voting-app](https://github.com/stackcouture/voting-app)** | Contains the Vote, Result, and Worker microservices, Dockerfiles, automated testing, GitHub Actions CI pipelines, container image creation, security scanning, and Artifact Registry publishing. |
-| **[platform-automation](https://github.com/stackcouture/platform-automation)** | Provides Python-based automation for day-2 platform operations, including platform health validation, operational reporting, scheduled maintenance, diagnostics, and infrastructure validation. |
+| **[cluster-operations](https://github.com/stackcouture/cluster-operations)** | Provides Python-based automation for day-2 platform operations, including platform health validation, operational reporting, scheduled maintenance, diagnostics, and infrastructure validation. |
 
 ---
 ## Documentation
