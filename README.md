@@ -103,18 +103,18 @@ The primary objective of this repository is to demonstrate practical experience 
 
 | Category | Technologies |
 |----------|--------------|
-| ☁️ Cloud | Google Cloud Platform (GCP) |
-| 🏗️ Infrastructure as Code | Terraform |
-| ☸️ Kubernetes | Google Kubernetes Engine (GKE) |
-| 🚀 GitOps | Argo CD, Kustomize |
-| ⚙️ CI/CD | GitHub Actions |
-| 📦 Progressive Delivery | Argo Rollouts |
-| 🔐 Security | Kyverno, Falco, External Secrets, Vault |
-| 🌐 Networking | Gateway API, NGINX Gateway Fabric, cert-manager |
-| 📊 Observability | Prometheus, Grafana, Alertmanager |
-| 📈 Autoscaling | HPA, KEDA |
-| 💰 Cost Management | Kubecost |
-| 💾 Backup & Recovery | Velero |
+| Cloud | Google Cloud Platform (GCP) |
+| Infrastructure as Code | Terraform |
+| Kubernetes | Google Kubernetes Engine (GKE) |
+| GitOps | Argo CD, Kustomize |
+| CI/CD | GitHub Actions |
+| Progressive Delivery | Argo Rollouts |
+| Security | Kyverno, Falco, External Secrets, Vault |
+| Networking | Gateway API, NGINX Gateway Fabric, cert-manager |
+| Observability | Prometheus, Grafana, Alertmanager |
+| Autoscaling | HPA, KEDA |
+| Cost Management | Kubecost |
+| Backup & Recovery | Velero |
 
 ---
 ## Repository Structure
@@ -226,12 +226,6 @@ Explore the platform through the following documentation.
 
 ---
 ## Demo Screenshots
-
-### Architecture
-
-<p align="left">
-  <img src="assets/screenshots/architecture.png" width="550" alt="Architecture">
-</p>
 
 ### CI/CD Demo 
 <p align="left">
